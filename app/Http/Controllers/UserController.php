@@ -16,10 +16,14 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public $title = "Profile";
+    public $title = "Profile";
     public function index()
     {
-        //
+        $users = User::all();
+        return view('admin.user.index',[
+           'users'=> $users,
+           'title'=> $this->title 
+        ]);
     }
 
     /**
@@ -29,7 +33,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create',[
+            'title'=> $this->title
+        ]);
     }
 
     /**
@@ -40,7 +46,33 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            "foto" => 'image|file|max:3000',
+            "nama"=>'required',
+            "email"=> 'required|unique:users,email,',
+            'password'=> 'min:6'
+        ]);
+       
+        $password = Hash::make($validatedData['password']);
+       
+        User::create([
+            "email"=> $validatedData["email"],
+            "password"=> $password
+        ]);
+        $userId = User::latest()->first();
+        if ($request->file('foto')) {
+            $validatedData['foto']= $request->file('foto')->move('user-images',$request->file('foto')->hashName());
+        }else{
+            $validatedData['foto'] ='';
+        }
+
+        Admin::create([
+            "name"=> $validatedData["nama"],
+            "img"=> $validatedData["foto"],
+            "user_id"=> $userId->id
+        ]);
+        
+        return redirect()->route('user.index');
     }
 
     /**
@@ -123,9 +155,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        File::delete(public_path($user->admin->img));
+        User::destroy($user->id);
+        return response()->json([
+            "message"=> "Berhasil Hapus Data"
+        ]);
     }
 
     
