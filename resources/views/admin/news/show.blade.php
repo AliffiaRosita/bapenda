@@ -19,7 +19,7 @@
             <div class="modal-body ">
                 <div class="text-center">
                     <h3>{{ $newsItem->title }}</h3>
-                    <small>{{ $newsItem->user->name }}, Jumlah View:{{ $newsItem->view }}</small>
+                    <small>{{ $newsItem->user->admin->name }}, Jumlah View:{{ $newsItem->view }}</small>
                 </div>
                     {!! $newsItem->desc !!}
                     <hr>

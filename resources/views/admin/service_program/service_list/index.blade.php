@@ -60,7 +60,7 @@
                                 Detail
                             </button>
 
-                            <form  method="post" class="d-inline" onsubmit="btnDelete('service/list',{{ $serviceList->id}})">
+                            <form  method="post" class="d-inline" onsubmit="btnDelete('serviceProgram/list',{{ $serviceList->id}})">
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-light-danger btn-sm" >Hapus</button>

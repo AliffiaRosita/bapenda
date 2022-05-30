@@ -57,7 +57,7 @@
                         <td>{{ $key+1 }}</td>
                         <td>{{ $newsItem->title }}</td>
                         <td>{{ $newsItem->view }}</td>
-                        <td>{{ $newsItem->user->name }}</td>
+                        <td>{{ $newsItem->user->admin->name }}</td>
                         <td class="text-center">
                             @if (auth()->user()->id == $newsItem->user_id)
                             <a href="{{ route('news.edit',['news'=>$newsItem]) }}" class="btn btn-light-success btn-sm">Ubah</a>

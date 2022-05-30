@@ -61,12 +61,12 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     Route::resource('company/profile',ProfileController::class);
     Route::resource('serviceProgram', ServiceProgramController::class);
 
-    Route::get('service/{serviceProgram}/list',[ServiceListController::class,'index'])->name('serviceList.index');
-    Route::get('service/{serviceProgram}/list/create',[ServiceListController::class,'create'])->name('serviceList.create');
-    Route::post('service/{serviceProgram}/list',[ServiceListController::class,'store'])->name('serviceList.store');
-    Route::get('service/list/edit/{serviceList}',[ServiceListController::class,'edit'])->name('serviceList.edit');
-    Route::put('service/list/{serviceList}',[ServiceListController::class,'update'])->name('serviceList.update');
-    Route::delete('service/list/{serviceList}',[ServiceListController::class,'destroy'])->name('serviceList.destroy');
+    Route::get('serviceProgram/{serviceProgram}/list',[ServiceListController::class,'index'])->name('serviceList.index');
+    Route::get('serviceProgram/{serviceProgram}/list/create',[ServiceListController::class,'create'])->name('serviceList.create');
+    Route::post('serviceProgram/{serviceProgram}/list',[ServiceListController::class,'store'])->name('serviceList.store');
+    Route::get('serviceProgram/list/edit/{serviceList}',[ServiceListController::class,'edit'])->name('serviceList.edit');
+    Route::put('serviceProgram/list/{serviceList}',[ServiceListController::class,'update'])->name('serviceList.update');
+    Route::delete('serviceProgram/list/{serviceList}',[ServiceListController::class,'destroy'])->name('serviceList.destroy');
 
     Route::get('download/servcieList/file/{serviceFile}', [ServiceListController::class,'download'])->name('serviceList.download');
     Route::post('serviceList/file/delete',[ServiceListController::class,'deleteFile'])->name('serviceList.file.delete');

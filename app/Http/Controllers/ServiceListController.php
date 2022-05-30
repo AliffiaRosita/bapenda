@@ -88,7 +88,7 @@ class ServiceListController extends Controller
                 'service_list_id'=>$serviceData->id
             ]);
          }
-         return redirect('admin/service/'.$serviceProgram->id.'/list');
+         return redirect('admin/serviceProgram/'.$serviceProgram->id.'/list');
 
     }
 
@@ -165,7 +165,7 @@ class ServiceListController extends Controller
             ]);
          }
 
-         return redirect('admin/service/'.$serviceList->service_program_id.'/list');
+         return redirect('admin/serviceProgram/'.$serviceList->service_program_id.'/list');
     }
 
     /**

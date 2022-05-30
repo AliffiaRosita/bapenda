@@ -1,7 +1,7 @@
 
 
 <div class="modal fade"  tabindex="-1" id="modalDetail-{{ $key }}">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Detail Profil</h5>
@@ -20,6 +20,7 @@
                 <div class="text-center">
                     <h3>{{ $profile->title }}</h3>
                 </div>
+                
                     {!! $profile->desc !!}
 
             </div>
