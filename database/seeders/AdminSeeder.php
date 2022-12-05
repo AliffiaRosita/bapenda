@@ -16,13 +16,13 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $data=[];
-        for ($i=1; $i <= 5; $i++) { 
+        for ($i=1; $i <= 1; $i++) {
             $data[$i]=
                 [
-                    'name' => Str::random(10),
+                    'name' => "Admin",
                     'img'=>'',
                     'user_id'=> $i,
-                    
+
                 ];
         }
         DB::table('admins')->insert($data);
