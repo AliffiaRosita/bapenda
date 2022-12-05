@@ -10,9 +10,9 @@
 		<meta charset="utf-8" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:type" content="article" />
-		<meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
+		<meta property="og:title" content="Admin - Bapenda Kalimantan Timur" />
 		<meta property="og:url" content="https://keenthemes.com/metronic" />
-		<meta property="og:site_name" content="Keenthemes | Metronic" />
+		<meta property="og:site_name" content="Admin - Bapenda Kalimantan Timur" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
 		@include('admin.partials.style')
 		<style>
