@@ -20,6 +20,7 @@ use App\Http\Controllers\InformationController;
 use App\Http\Controllers\InstitutionController;
 use App\Http\Controllers\ServiceListController;
 use App\Http\Controllers\ServiceProgramController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,7 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     Route::resource('infographic', InfographicController::class);
 
     Route::resource('news', NewsController::class);
+    Route::resource('category', CategoryController::class);
 
     Route::post('editor/fileUpload', [TextEditorController::class,'fileUpload'])->name('editor.fileUpload');
     Route::post('editor/fileDelete', [TextEditorController::class,'fileDelete'])->name('editor.fileDelete');
