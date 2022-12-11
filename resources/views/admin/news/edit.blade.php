@@ -73,6 +73,29 @@
                         </div> --}}
                         <div class="col-md-12">
                             <div class="mb-10">
+                                <label for="name" class="required form-label">Kategori Berita</label> <br>
+                                <select class="form-control select2" id="kt_select2_3" name="kategori[]"
+                                    multiple="multiple">
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                            @if ($news->categories)
+                                                @foreach ($news->categories as $oldCategory)
+                                                    @if ($oldCategory->id == $category->id){{ 'selected' }} @endif
+                                                @endforeach
+                                            @endif>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('kategori')
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-10">
                                 <label for="deskripsi" class="required form-label">Isi Berita </label> <br>
                                 <textarea name="deskripsi" id="summernote"  class="@error('deskripsi') is-invalid  @enderror form-control" style="height: 300px" >
                                     {!! old('deskripsi',$news->desc) !!}</textarea>
@@ -130,6 +153,9 @@
 
 
 $(document).ready(function() {
+    $('#kt_select2_3, #kt_select2_3_validate').select2({
+                placeholder: "Pilih kategori berita",
+            });
     var imagesPreview = function(input, placeToInsertImagePreview) {
 if (input.files) {
     var filesAmount = input.files.length;

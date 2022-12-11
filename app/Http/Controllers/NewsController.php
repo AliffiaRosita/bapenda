@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Models\NewsGallery;
 use App\Models\User;
+use App\Models\Category;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -33,8 +34,10 @@ class NewsController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
         return view('admin.news.create',[
             'title'=> $this->title,
+            'categories'=>$categories,
         ]);
     }
 
@@ -50,7 +53,8 @@ class NewsController extends Controller
         $validatedData= $request->validate([
             "judul"=> "required",
             "deskripsi"=>"required",
-            "gambar.*"=> "image|file|max:3000"
+            "gambar.*"=> "image|file|max:3000",
+            "kategori"=>'required|array|min:1'
         ]);
         $slug = SlugService::createSlug(News::class,'slug',$validatedData['judul']);
 
@@ -71,6 +75,7 @@ class NewsController extends Controller
                 ]);
             }
         }
+        $newsId->categories()->attach($validatedData["kategori"]);
         return redirect('/admin/news');
     }
 
@@ -95,11 +100,13 @@ class NewsController extends Controller
     {
         $newsGalleries = NewsGallery::where('news_id',$news->id)->get();
         $users = User::all();
+        $categories = Category::all();
         return view('admin.news.edit',[
             "title"=> $this->title,
             "news"=>$news,
             "newsGalleries"=> $newsGalleries,
-            "users"=>$users
+            "users"=>$users,
+            'categories'=>$categories,
         ]);
 
     }
@@ -113,11 +120,12 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
+        // dd($request->all());
         $validatedData= $request->validate([
             "judul"=> "required",
-            "penulis"=>"required",
             "deskripsi"=>"required",
-            "gambar.*"=> "image|file|max:3000"
+            "gambar.*"=> "image|file|max:3000",
+            "kategori"=>'required|array|min:1'
         ]);
         $slug = SlugService::createSlug(News::class,'slug',$validatedData['judul']);
 
@@ -125,7 +133,7 @@ class NewsController extends Controller
             "title"=> $validatedData["judul"],
             "desc"=>$validatedData["deskripsi"],
             "slug"=> $slug,
-            "user_id"=>$validatedData["penulis"],
+            "user_id"=>Auth::id(),
         ]);
         if ($request->file("gambar")) {
             foreach ($request->file("gambar") as  $image) {
@@ -136,6 +144,7 @@ class NewsController extends Controller
                 ]);
             }
         }
+        $news->categories()->sync($validatedData["kategori"]);
         return redirect('/admin/news');
 
     }
