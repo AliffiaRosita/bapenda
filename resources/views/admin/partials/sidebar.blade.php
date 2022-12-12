@@ -160,7 +160,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Berita Gambar</span>
+                        <span class="menu-title">Berita</span>
                     </a>
                 </div>
                 <div class="menu-item">
