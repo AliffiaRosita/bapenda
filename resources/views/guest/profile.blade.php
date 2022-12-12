@@ -21,7 +21,7 @@ PageTitle #2 Section
     <div class="breadcrumb-wrap">
         <div class="container">
             <ol class="breadcrumb d-flex">
-                <li class="breadcrumb-item"><a href="index.html">Profile</a></li>
+                <li class="breadcrumb-item"><a href="index.html">Profil</a></li>
                 <li class="breadcrumb-item"><a href="">{{$profile->title}}</a></li>
             </ol>
             <!-- End .row-->
@@ -29,7 +29,7 @@ PageTitle #2 Section
     </div>
     <!-- End .container-->
 </section>
- <section class="about about-3" id="about-3">
+ <section class="about about-3" style="padding-top:50px" id="about-3">
         <div class="container">
             {!!$profile->desc!!}
         </div>

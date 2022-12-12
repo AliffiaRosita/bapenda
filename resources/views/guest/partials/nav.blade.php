@@ -67,7 +67,7 @@
                         href="page-services.html" data-toggle="dropdown"><span>Data</span></a>
                     @if ($datas)
                     <ul class="dropdown-menu">
-                    @foreach ($datas as $item)
+                        @foreach ($datas as $item)
                         <li class="nav-item"><a href="{{route('data',['data'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>
@@ -75,36 +75,43 @@
                 </li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Produk Hukum</span></a>
+                    @if ($laws)
                     <ul class="dropdown-menu">
-                        <li class="nav-item"><a href="projects-standard.html"><span>projects standard</span></a></li>
-                        <li class="nav-item"><a href="projects-modern.html"><span>projects modern</span></a></li>
-                        <li class="nav-item"><a href="projects-grid.html"><span>projects grid</span></a></li>
-                        <li class="nav-item"><a href="projects-single.html"><span>project single</span></a></li>
+                        @foreach ($laws as $item)
+                        <li class="nav-item"><a href="{{route('law',['law'=>$item])}}">{{$item->title}}</a></li>
+                        @endforeach
                     </ul>
+                    @endif
                 </li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Laporan Berkala</span></a>
+                    @if ($reports)
                     <ul class="dropdown-menu">
-                        <li class="nav-item"><a href="blog-grid.html"><span>blog grid</span></a></li>
-                        <li class="nav-item"><a href="blog-standard.html"><span>blog standard</span></a></li>
-                        <li class="nav-item"><a href="blog-single.html"><span>single blog post</span></a></li>
+                        @foreach ($reports as $item)
+                        <li class="nav-item"><a href="{{route('report',['report'=>$item])}}">{{$item->title}}</a></li>
+                        @endforeach
                     </ul>
+                    @endif
                 </li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Informasi</span></a>
+                    @if ($infos)
                     <ul class="dropdown-menu">
-                        <li class="nav-item"><a href="blog-grid.html"><span>blog grid</span></a></li>
-                        <li class="nav-item"><a href="blog-standard.html"><span>blog standard</span></a></li>
-                        <li class="nav-item"><a href="blog-single.html"><span>single blog post</span></a></li>
+                        @foreach ($infos as $item)
+                        <li class="nav-item"><a href="{{route('info',['info'=>$item])}}">{{$item->title}}</a></li>
+                        @endforeach
                     </ul>
+                    @endif
                 </li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Layanan PPID</span></a>
+                    @if ($ppid)
                     <ul class="dropdown-menu">
-                        <li class="nav-item"><a href="blog-grid.html"><span>blog grid</span></a></li>
-                        <li class="nav-item"><a href="blog-standard.html"><span>blog standard</span></a></li>
-                        <li class="nav-item"><a href="blog-single.html"><span>single blog post</span></a></li>
+                        @foreach ($ppid as $item)
+                        <li class="nav-item"><a href="{{route('ppid',['ppid'=>$item])}}">{{$item->title}}</a></li>
+                        @endforeach
                     </ul>
+                    @endif
                 </li>
             </ul>
             <!--  End .module-holder-->

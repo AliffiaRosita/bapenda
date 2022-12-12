@@ -15,7 +15,7 @@ PageTitle #2 Section
             <div class="row">
                 <div class="col-12 col-lg-5">
                     <div class="title">
-                        <h1 class="title-heading">{{$data->title}}</h1>
+                        <h1 class="title-heading">{{$ppid->title}}</h1>
                     </div>
                 </div>
             </div>
@@ -24,8 +24,8 @@ PageTitle #2 Section
     <div class="breadcrumb-wrap">
         <div class="container">
             <ol class="breadcrumb d-flex">
-                <li class="breadcrumb-item"><a href="index.html">Data</a></li>
-                <li class="breadcrumb-item"><a href="">{{$data->title}}</a></li>
+                <li class="breadcrumb-item"><a href="index.html">Layanan PPID</a></li>
+                <li class="breadcrumb-item"><a href="">{{$ppid->title}}</a></li>
             </ol>
             <!-- End .row-->
         </div>
@@ -34,8 +34,8 @@ PageTitle #2 Section
 </section>
  <section class="about about-3" style="padding-top:50px" id="about-3">
         <div class="container">
-            @if ($data->type === 'article')
-                {!! $dataArticle->desc!!}
+            @if ($ppid->type === 'article')
+                {!! $ppidArticle->desc!!}
             @else
             <table class="table table-striped table-hover text-center">
                 <tr class=" table-success">
@@ -43,7 +43,7 @@ PageTitle #2 Section
                     <th width="70%">Nama File</th>
                     <th>Aksi</th>
                 </tr>
-                @foreach ($dataFile as $key=>$item)
+                @foreach ($ppidFile as $key=>$item)
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$item->title}}</td>

@@ -39,6 +39,10 @@ use App\Http\Controllers\PartnerController;
 Route::get('/beranda', [HomeController::class,'home']);
 Route::get('/profil/{profile:slug}',[HomeController::class,'profile'])->name('profile');
 Route::get('/data/{data:slug}',[HomeController::class,'data'])->name('data');
+Route::get('/law/{law:slug}',[HomeController::class,'law'])->name('law');
+Route::get('/report/{report:slug}',[HomeController::class,'report'])->name('report');
+Route::get('/info/{info:slug}',[HomeController::class,'info'])->name('info');
+Route::get('/ppid/{ppid:slug}',[HomeController::class,'ppid'])->name('ppid');
 Route::get('/download/{file}/{fileName}',[HomeController::class,'downloadFile'])->name('download.file');
 
 Route::get('login', [LoginController::class,'login'])->name('login')->middleware('guest');
