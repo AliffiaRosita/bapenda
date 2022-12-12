@@ -21,6 +21,7 @@ use App\Http\Controllers\InstitutionController;
 use App\Http\Controllers\ServiceListController;
 use App\Http\Controllers\ServiceProgramController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\VisitorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,3 +97,6 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     Route::resource('user', UserController::class);
     Route::post('logout',[LoginController::class,'logout'])->name('logout');
 });
+
+Route::get('getvisitors', [VisitorController::class,'getVisitor']);
+
