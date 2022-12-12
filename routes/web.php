@@ -22,6 +22,7 @@ use App\Http\Controllers\ServiceListController;
 use App\Http\Controllers\ServiceProgramController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,10 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
 
     Route::resource('newsVideo', NewsVideoController::class);
     Route::resource('user', UserController::class);
+
+    // for landing page
+    Route::resource('partner', PartnerController::class);
+
 
     // menu
     Route::resource('company/profile',ProfileController::class);
