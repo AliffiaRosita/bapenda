@@ -21,6 +21,9 @@ use App\Http\Controllers\InformationController;
 use App\Http\Controllers\InstitutionController;
 use App\Http\Controllers\ServiceListController;
 use App\Http\Controllers\ServiceProgramController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +53,7 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     Route::resource('infographic', InfographicController::class);
 
     Route::resource('news', NewsController::class);
+    Route::resource('category', CategoryController::class);
 
     Route::post('editor/fileUpload', [TextEditorController::class,'fileUpload'])->name('editor.fileUpload');
     Route::post('editor/fileDelete', [TextEditorController::class,'fileDelete'])->name('editor.fileDelete');
@@ -58,6 +62,10 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
 
     Route::resource('newsVideo', NewsVideoController::class);
     Route::resource('user', UserController::class);
+
+    // for landing page
+    Route::resource('partner', PartnerController::class);
+
 
     // menu
     Route::resource('company/profile',ProfileController::class);
@@ -96,3 +104,6 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     Route::resource('user', UserController::class);
     Route::post('logout',[LoginController::class,'logout'])->name('logout');
 });
+
+Route::get('getvisitors', [VisitorController::class,'getVisitor']);
+
