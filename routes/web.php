@@ -23,6 +23,7 @@ use App\Http\Controllers\ServiceProgramController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,7 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
 
     // for landing page
     Route::resource('partner', PartnerController::class);
+    Route::resource('about', AboutController::class);
 
 
     // menu

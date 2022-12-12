@@ -99,7 +99,7 @@ class PartnerController extends Controller
             File::delete(public_path($oldImage));
             $logo= $request->file('image')->move('partner',$request->file('image')->hashName());
         }else{
-            $logo = $infographic->img;
+            $logo = $partner->img;
         }
 
         Partner::where('id',$partner->id)->update([
