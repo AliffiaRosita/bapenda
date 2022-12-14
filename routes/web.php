@@ -47,6 +47,9 @@ Route::get('/info/{info:slug}',[HomeController::class,'info'])->name('info');
 Route::get('/ppid/{ppid:slug}',[HomeController::class,'ppid'])->name('ppid');
 Route::get('/download/{file}/{fileName}',[HomeController::class,'downloadFile'])->name('download.file');
 
+
+
+
 Route::get('login', [LoginController::class,'login'])->name('login')->middleware('guest');
 Route::post('login', [LoginController::class,'authenticate'])->name('login.auth');
 
@@ -110,6 +113,10 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     Route::post('ppid/file/delete',[PpidController::class,'deleteFile'])->name('ppid.file.delete');
 
     Route::resource('user', UserController::class);
+
+    // Data for chart
+    Route::get('get-datachart-visitor', [DashboardController::class,'getDataChartVisitor'])->name('data.chart.visitor');
+
     Route::post('logout',[LoginController::class,'logout'])->name('logout');
 });
 
