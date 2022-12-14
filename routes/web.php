@@ -118,6 +118,7 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
 
     // Data for chart
     Route::get('get-datachart-visitor', [DashboardController::class,'getDataChartVisitor'])->name('data.chart.visitor');
+    Route::get('get-datachart-category', [DashboardController::class,'getDataChartCategory'])->name('data.chart.category');
 
     Route::post('logout',[LoginController::class,'logout'])->name('logout');
 });
