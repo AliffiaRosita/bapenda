@@ -281,7 +281,7 @@
                 <!--begin::Body-->
                 <div class="card-body pt-2">
                     <!--begin::Chart-->
-                    <div id="chartCategory" class="d-flex justify-content-center"></div>
+                    <div id="chartCategory" class="d-flex justify-content-center" style="height: 350px"></div>
                     <!--end::Chart-->
                 </div>
                 <!--end::Body-->
