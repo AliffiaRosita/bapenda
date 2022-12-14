@@ -17,7 +17,7 @@ class CreateServiceProgramsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('desc')->nullable();
-            $table->text('slug')->unique();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
