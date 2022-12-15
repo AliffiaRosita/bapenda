@@ -20,6 +20,7 @@ use App\Models\Report;
 use App\Models\ReportArticle;
 use App\Models\ReportFile;
 use App\Models\Service;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -73,7 +74,7 @@ class HomeController extends Controller
         $dataArticle='';
         $dataFile = [];
         if ($datas->type === 'article') {
-            $dataArticle = DataArticle::where('data_id',$datas->id)->first(); 
+            $dataArticle = DataArticle::where('data_id',$datas->id)->first();
         }else{
             $dataFile = DataFile::where('data_id',$datas->id)->get();
         }
@@ -104,7 +105,7 @@ class HomeController extends Controller
         $lawArticle='';
         $lawFile = [];
         if ($law->type === 'article') {
-            $lawArticle = LawArticle::where('law_id',$law->id)->first(); 
+            $lawArticle = LawArticle::where('law_id',$law->id)->first();
         }else{
             $lawFile = LawFile::where('law_id',$law->id)->get();
         }
@@ -135,7 +136,7 @@ class HomeController extends Controller
         $reportArticle='';
         $reportFile = [];
         if ($report->type === 'article') {
-            $reportArticle = ReportArticle::where('report_id',$report->id)->first(); 
+            $reportArticle = ReportArticle::where('report_id',$report->id)->first();
         }else{
             $reportFile = ReportFile::where('report_id',$report->id)->get();
         }
@@ -166,7 +167,7 @@ class HomeController extends Controller
         $infoArticle='';
         $infoFile = [];
         if ($info->type === 'article') {
-            $infoArticle = InfoArticle::where('information_id',$info->id)->first(); 
+            $infoArticle = InfoArticle::where('information_id',$info->id)->first();
         }else{
             $infoFile = InfoFile::where('information_id',$info->id)->get();
         }
@@ -197,7 +198,7 @@ class HomeController extends Controller
         $ppidArticle='';
         $ppidFile = [];
         if ($ppid->type === 'article') {
-            $ppidArticle = PpidArticle::where('ppid_id',$ppid->id)->first(); 
+            $ppidArticle = PpidArticle::where('ppid_id',$ppid->id)->first();
         }else{
             $ppidFile = PpidFile::where('ppid_id',$ppid->id)->get();
         }
@@ -230,5 +231,28 @@ class HomeController extends Controller
             'Content-Type: application/pdf',
         );
         return response()->download($path, $filename, $headers);
+    }
+
+    public function contact()
+    {
+        $profiles = Profile::all();
+        $services = Service::all();
+        $data = Data::all();
+        $laws = Law::all();
+        $report = Report::all();
+        $info = Information::all();
+        $ppid = Ppid::all();
+        $contact = Ppid::first();
+
+        return view('guest.contact',[
+            'contact'=>$contact,
+            'profiles'=>$profiles,
+            'services'=>$services,
+            'datas'=>$data,
+            'laws'=>$laws,
+            'reports'=>$report,
+            'infos'=>$info,
+            'ppid'=>$ppid
+        ]);
     }
 }

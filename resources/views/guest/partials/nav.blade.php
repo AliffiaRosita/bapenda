@@ -32,13 +32,13 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item " data-hover=""><a href="#"><span>Beranda</span></a>
                 </li>
-                <li class="nav-item has-dropdown active" data-hover=""><a class="dropdown-toggle" href="#"
+                <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Profil</span></a>
                     {{-- @dd($profiles) --}}
                     <ul class="dropdown-menu">
                         @if ($profiles)
                         @foreach ($profiles as $item)
-                        <li class="nav-item current"><a
+                        <li class="nav-item"><a
                                 href="{{route('profile',['profile'=>$item])}}"><span>{{$item->title}}</span></a></li>
                         @endforeach
                         @endif
@@ -113,6 +113,7 @@
                     </ul>
                     @endif
                 </li>
+                <li class="nav-item {{ Request::is('kontak') ? 'active' : '' }}" id="contact" data-hover=""><a href="{{route('contact')}}"><span>Kontak</span></a></li>
             </ul>
             <!--  End .module-holder-->
         </div>
