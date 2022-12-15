@@ -33,10 +33,10 @@
                 <li class="nav-item {{ Request::is('beranda') ? 'active' : '' }}" id="contact" data-hover=""><a href="{{route('beranda')}}"><span>Beranda</span></a></li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Profil</span></a>
-                    {{-- @dd($profiles) --}}
+                    {{-- @dd($navProfiles) --}}
                     <ul class="dropdown-menu">
-                        @if ($profiles)
-                        @foreach ($profiles as $item)
+                        @if ($navProfiles)
+                        @foreach ($navProfiles as $item)
                         <li class="nav-item"><a
                                 href="{{route('profile',['profile'=>$item])}}"><span>{{$item->title}}</span></a></li>
                         @endforeach
@@ -64,9 +64,9 @@
                 </li>
                 <li class="nav-item has-dropdown" id="departments" data-hover=""><a class="dropdown-toggle"
                         href="page-services.html" data-toggle="dropdown"><span>Data</span></a>
-                    @if ($datas)
+                    @if ($navData)
                     <ul class="dropdown-menu">
-                        @foreach ($datas as $item)
+                        @foreach ($navData as $item)
                         <li class="nav-item"><a href="{{route('data',['data'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>
@@ -74,9 +74,9 @@
                 </li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Produk Hukum</span></a>
-                    @if ($laws)
+                    @if ($navLaws)
                     <ul class="dropdown-menu">
-                        @foreach ($laws as $item)
+                        @foreach ($navLaws as $item)
                         <li class="nav-item"><a href="{{route('law',['law'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>
@@ -84,9 +84,9 @@
                 </li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Laporan Berkala</span></a>
-                    @if ($reports)
+                    @if ($navReport)
                     <ul class="dropdown-menu">
-                        @foreach ($reports as $item)
+                        @foreach ($navReport as $item)
                         <li class="nav-item"><a href="{{route('report',['report'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>
@@ -94,9 +94,9 @@
                 </li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Informasi</span></a>
-                    @if ($infos)
+                    @if ($navInfo)
                     <ul class="dropdown-menu">
-                        @foreach ($infos as $item)
+                        @foreach ($navInfo as $item)
                         <li class="nav-item"><a href="{{route('info',['info'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>
@@ -104,9 +104,9 @@
                 </li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Layanan PPID</span></a>
-                    @if ($ppid)
+                    @if ($navPpid)
                     <ul class="dropdown-menu">
-                        @foreach ($ppid as $item)
+                        @foreach ($navPpid as $item)
                         <li class="nav-item"><a href="{{route('ppid',['ppid'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>

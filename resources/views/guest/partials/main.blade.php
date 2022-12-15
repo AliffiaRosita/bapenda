@@ -1,3 +1,21 @@
+@php
+use App\Models\Profile;
+use App\Models\Service;
+use App\Models\Data;
+use App\Models\Law;
+use App\Models\Report;
+use App\Models\Information;
+use App\Models\Ppid;
+
+$navProfiles = Profile::all();
+$navServices = Service::all();
+$navData = Data::all();
+$navLaws = Law::all();
+$navReport = Report::all();
+$navInfo = Information::all();
+$navPpid = Ppid::all();
+
+@endphp
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
   <head>
@@ -12,14 +30,14 @@
   <body>
     {{-- <div class="preloader">
       <div class="dual-ring">
-        
+
       </div>
       <br>
-      <img src="{{asset('img/logo-bapenda.png')}}" style="width:300px"alt=""> 
+      <img src="{{asset('img/logo-bapenda.png')}}" style="width:300px"alt="">
     </div> --}}
     <!-- Document Wrapper-->
     <div class="wrapper clearfix" id="wrapperParallax">
-      <!-- 
+      <!--
       ============================
       Header #2
       ============================
@@ -27,7 +45,7 @@
       @include('guest.partials.nav')
       <!-- End .header-->
       @yield('content')
-      
+
       @include('guest.partials.footer')
       <!--
       ============================
