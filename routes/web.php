@@ -39,6 +39,7 @@ use App\Http\Controllers\ContactController;
 |
 */
 
+Route::redirect('/', '/beranda');
 Route::get('/beranda', [HomeController::class,'home']);
 Route::get('/profil/{profile:slug}',[HomeController::class,'profile'])->name('profile');
 Route::get('/data/{data:slug}',[HomeController::class,'data'])->name('data');
@@ -118,6 +119,7 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
 
     // Data for chart
     Route::get('get-datachart-visitor', [DashboardController::class,'getDataChartVisitor'])->name('data.chart.visitor');
+    Route::get('get-datachart-category', [DashboardController::class,'getDataChartCategory'])->name('data.chart.category');
 
     Route::post('logout',[LoginController::class,'logout'])->name('logout');
 });

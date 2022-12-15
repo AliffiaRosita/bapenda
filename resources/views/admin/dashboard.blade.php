@@ -11,6 +11,7 @@
 
 @push('css')
     <meta name="url_data_chart_visitor" content="{{ route('data.chart.visitor') }}">
+    <meta name="url_data_chart_category" content="{{ route('data.chart.category') }}">
 @endpush
 @section('content')
     <div class="card">
@@ -254,7 +255,7 @@
                 <!--begin::Header-->
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bolder fs-3 mb-1">Statistic Pengunjung Tahun {{$now->year}}</span>
+                        <span class="card-label fw-bolder fs-3 mb-1">Statistic Pengunjung Tahun {{ $now->year }}</span>
                         <span class="text-muted fw-bold fs-7"></span>
                     </h3>
                 </div>
@@ -274,86 +275,14 @@
             <div class="card card-xl-stretch mb-xl-8">
                 <!--begin::Header-->
                 <div class="card-header border-0">
-                    <h3 class="card-title fw-bolder text-dark">Pengguna Terakhir</h3>
+                    <h3 class="card-title fw-bolder text-dark">Diagram Kategori Berita</h3>
                 </div>
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body pt-2">
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center mb-7">
-                        <!--begin::Avatar-->
-                        <div class="symbol symbol-50px me-5">
-                            <img src="assets/media/avatars/150-1.jpg" class="" alt="" />
-                        </div>
-                        <!--end::Avatar-->
-                        <!--begin::Text-->
-                        <div class="flex-grow-1">
-                            <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Emma Smith</a>
-                            <span class="text-muted d-block fw-bold">Project Manager</span>
-                        </div>
-                        <!--end::Text-->
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center mb-7">
-                        <!--begin::Avatar-->
-                        <div class="symbol symbol-50px me-5">
-                            <img src="assets/media/avatars/150-4.jpg" class="" alt="" />
-                        </div>
-                        <!--end::Avatar-->
-                        <!--begin::Text-->
-                        <div class="flex-grow-1">
-                            <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Sean Bean</a>
-                            <span class="text-muted d-block fw-bold">PHP, SQLite, Artisan CLI</span>
-                        </div>
-                        <!--end::Text-->
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center mb-7">
-                        <!--begin::Avatar-->
-                        <div class="symbol symbol-50px me-5">
-                            <img src="assets/media/avatars/150-12.jpg" class="" alt="" />
-                        </div>
-                        <!--end::Avatar-->
-                        <!--begin::Text-->
-                        <div class="flex-grow-1">
-                            <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Brian Cox</a>
-                            <span class="text-muted d-block fw-bold">PHP, SQLite, Artisan CLI</span>
-                        </div>
-                        <!--end::Text-->
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center mb-7">
-                        <!--begin::Avatar-->
-                        <div class="symbol symbol-50px me-5">
-                            <img src="assets/media/avatars/150-8.jpg" class="" alt="" />
-                        </div>
-                        <!--end::Avatar-->
-                        <!--begin::Text-->
-                        <div class="flex-grow-1">
-                            <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Francis Mitcham</a>
-                            <span class="text-muted d-block fw-bold">PHP, SQLite, Artisan CLI</span>
-                        </div>
-                        <!--end::Text-->
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center">
-                        <!--begin::Avatar-->
-                        <div class="symbol symbol-50px me-5">
-                            <img src="assets/media/avatars/150-6.jpg" class="" alt="" />
-                        </div>
-                        <!--end::Avatar-->
-                        <!--begin::Text-->
-                        <div class="flex-grow-1">
-                            <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Dan Wilson</a>
-                            <span class="text-muted d-block fw-bold">PHP, SQLite, Artisan CLI</span>
-                        </div>
-                        <!--end::Text-->
-                    </div>
-                    <!--end::Item-->
+                    <!--begin::Chart-->
+                    <div id="chartCategory" class="d-flex justify-content-center" style="height: 350px"></div>
+                    <!--end::Chart-->
                 </div>
                 <!--end::Body-->
             </div>
@@ -376,45 +305,46 @@
                 <!--begin::Body-->
                 <div class="card-body pt-3">
                     @foreach ($latestNews as $news)
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-sm-center mb-7">
-                        <!--begin::Symbol-->
-                        <div class="symbol symbol-60px symbol-2by3 me-4">
-                            <div class="symbol-label"
-                                style="background-image: url('assets/media/stock/600x400/img-17.jpg')"></div>
-                        </div>
-                        <!--end::Symbol-->
-                        <!--begin::Content-->
-                        <div class="d-flex flex-row-fluid align-items-center flex-wrap my-lg-0 me-2">
-                            <!--begin::Title-->
-                            <div class="flex-grow-1 my-lg-0 my-2 me-2">
-                                <a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">{{$news->title}}</a>
-                                <span class="text-muted fw-bold d-block pt-1">Visually stunning</span>
+                        <!--begin::Item-->
+                        <div class="d-flex align-items-sm-center mb-7">
+                            <!--begin::Symbol-->
+                            <div class="symbol symbol-60px symbol-2by3 me-4">
+                                <div class="symbol-label"
+                                    style="background-image: url('assets/media/stock/600x400/img-17.jpg')"></div>
                             </div>
-                            <!--end::Title-->
-                            <!--begin::Section-->
-                            <div class="d-flex align-items-center">
-                                <a href="#" class="btn btn-icon btn-light btn-sm border-0">
-                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
-                                    <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none">
-                                            <rect opacity="0.5" x="18" y="13" width="13"
-                                                height="2" rx="1" transform="rotate(-180 18 13)"
-                                                fill="black" />
-                                            <path
-                                                d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z"
-                                                fill="black" />
-                                        </svg>
-                                    </span>
-                                    <!--end::Svg Icon-->
-                                </a>
+                            <!--end::Symbol-->
+                            <!--begin::Content-->
+                            <div class="d-flex flex-row-fluid align-items-center flex-wrap my-lg-0 me-2">
+                                <!--begin::Title-->
+                                <div class="flex-grow-1 my-lg-0 my-2 me-2">
+                                    <a href="#"
+                                        class="text-gray-800 fw-bolder text-hover-primary fs-6">{{ $news->title }}</a>
+                                    <span class="text-muted fw-bold d-block pt-1">Visually stunning</span>
+                                </div>
+                                <!--end::Title-->
+                                <!--begin::Section-->
+                                <div class="d-flex align-items-center">
+                                    <a href="#" class="btn btn-icon btn-light btn-sm border-0">
+                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
+                                        <span class="svg-icon svg-icon-2 svg-icon-primary">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <rect opacity="0.5" x="18" y="13" width="13"
+                                                    height="2" rx="1" transform="rotate(-180 18 13)"
+                                                    fill="black" />
+                                                <path
+                                                    d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </span>
+                                        <!--end::Svg Icon-->
+                                    </a>
+                                </div>
+                                <!--end::Section-->
                             </div>
-                            <!--end::Section-->
+                            <!--end::Content-->
                         </div>
-                        <!--end::Content-->
-                    </div>
-                    <!--end::Item-->
+                        <!--end::Item-->
                     @endforeach
                 </div>
                 <!--end::Body-->
@@ -435,45 +365,46 @@
                 <!--begin::Body-->
                 <div class="card-body pt-3">
                     @foreach ($latestNewsVideo as $newsVideo)
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-sm-center mb-7">
-                        <!--begin::Symbol-->
-                        <div class="symbol symbol-60px symbol-2by3 me-4">
-                            <div class="symbol-label"
-                                style="background-image: url('assets/media/stock/600x400/img-17.jpg')"></div>
-                        </div>
-                        <!--end::Symbol-->
-                        <!--begin::Content-->
-                        <div class="d-flex flex-row-fluid align-items-center flex-wrap my-lg-0 me-2">
-                            <!--begin::Title-->
-                            <div class="flex-grow-1 my-lg-0 my-2 me-2">
-                                <a href="#" class="text-gray-800 fw-bolder text-hover-primary fs-6">{{$newsVideo->title}}</a>
-                                <span class="text-muted fw-bold d-block pt-1">Visually stunning</span>
+                        <!--begin::Item-->
+                        <div class="d-flex align-items-sm-center mb-7">
+                            <!--begin::Symbol-->
+                            <div class="symbol symbol-60px symbol-2by3 me-4">
+                                <div class="symbol-label"
+                                    style="background-image: url('assets/media/stock/600x400/img-17.jpg')"></div>
                             </div>
-                            <!--end::Title-->
-                            <!--begin::Section-->
-                            <div class="d-flex align-items-center">
-                                <a href="#" class="btn btn-icon btn-light btn-sm border-0">
-                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
-                                    <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none">
-                                            <rect opacity="0.5" x="18" y="13" width="13"
-                                                height="2" rx="1" transform="rotate(-180 18 13)"
-                                                fill="black" />
-                                            <path
-                                                d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z"
-                                                fill="black" />
-                                        </svg>
-                                    </span>
-                                    <!--end::Svg Icon-->
-                                </a>
+                            <!--end::Symbol-->
+                            <!--begin::Content-->
+                            <div class="d-flex flex-row-fluid align-items-center flex-wrap my-lg-0 me-2">
+                                <!--begin::Title-->
+                                <div class="flex-grow-1 my-lg-0 my-2 me-2">
+                                    <a href="#"
+                                        class="text-gray-800 fw-bolder text-hover-primary fs-6">{{ $newsVideo->title }}</a>
+                                    <span class="text-muted fw-bold d-block pt-1">Visually stunning</span>
+                                </div>
+                                <!--end::Title-->
+                                <!--begin::Section-->
+                                <div class="d-flex align-items-center">
+                                    <a href="#" class="btn btn-icon btn-light btn-sm border-0">
+                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
+                                        <span class="svg-icon svg-icon-2 svg-icon-primary">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <rect opacity="0.5" x="18" y="13" width="13"
+                                                    height="2" rx="1" transform="rotate(-180 18 13)"
+                                                    fill="black" />
+                                                <path
+                                                    d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z"
+                                                    fill="black" />
+                                            </svg>
+                                        </span>
+                                        <!--end::Svg Icon-->
+                                    </a>
+                                </div>
+                                <!--end::Section-->
                             </div>
-                            <!--end::Section-->
+                            <!--end::Content-->
                         </div>
-                        <!--end::Content-->
-                    </div>
-                    <!--end::Item-->
+                        <!--end::Item-->
                     @endforeach
                 </div>
                 <!--end::Body-->
@@ -613,9 +544,49 @@
                     }).render()
                 });
             }
+            const setBg = () => {
+                const randomColor = Math.floor(Math.random()*16777215).toString(16);
+                return "#" + randomColor;
+            }
+            var donutChart = function() {
+                const primary = '#6993FF';
+                const success = '#1BC5BD';
+                const info = '#8950FC';
+                const warning = '#FFA800';
+                const danger = '#F64E60';
+                let url = $('meta[name="url_data_chart_category"]').attr('content');
+                var elDonutChart = document.getElementById("chartCategory")
+                $.get(url, function(data) {
+                    let bgColor = data.data.map((data) => setBg())
+                    var options = {
+                        series: data.data,
+                        chart: {
+                            width: 380,
+                            type: 'pie',
+                        },
+                        labels:data.labels,
+                        responsive: [{
+                            breakpoint: 480,
+                            options: {
+                                chart: {
+                                    width: 200
+                                },
+                                legend: {
+                                    position: 'bottom'
+                                }
+                            }
+                        }],
+                        colors: bgColor
+                    };
+
+                    var chart = new ApexCharts(elDonutChart, options);
+                    chart.render();
+                });
+            }
             return {
                 init: function() {
                     initChart()
+                    donutChart()
                 }
             }
         }();

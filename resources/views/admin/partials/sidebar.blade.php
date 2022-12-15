@@ -124,7 +124,7 @@
                         <span class="menu-title">Layanan</span>
                     </a>
                 </div>
-                <div class="menu-item">
+                {{-- <div class="menu-item">
                     <a class="menu-link {{request()->segment(2) == 'institution' ?'active':'' }}" href="{{ route('institution.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/layouts/lay010.svg-->
@@ -138,7 +138,7 @@
                         </span>
                         <span class="menu-title">Lembaga</span>
                     </a>
-                </div>
+                </div> --}}
                 <div class="menu-item">
                     <a class="menu-link {{request()->segment(2) == 'infographic' ?'active':'' }}" href="{{ route('infographic.index') }}">
                         <span class="menu-icon">
@@ -208,7 +208,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Partner</span>
+                        <span class="menu-title">Lembaga / Partner</span>
                     </a>
                 </div>
 

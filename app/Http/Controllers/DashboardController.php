@@ -60,4 +60,15 @@ class DashboardController extends Controller
             'visitor'=>$visitor,
         ], 200);
     }
+
+    public function getDataChartCategory()
+    {
+        $categories = Category::all();
+        $dataChartKategori = [];
+        foreach ($categories as $key => $category) {
+            $dataChartKategori['labels'][] = $category->name;
+			$dataChartKategori['data'][] = $category->news()->count();
+        }
+        return response()->json($dataChartKategori, 200);
+    }
 }

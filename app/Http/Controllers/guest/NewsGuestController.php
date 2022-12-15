@@ -25,7 +25,7 @@ class NewsGuestController extends Controller
         $report = Report::all();
         $info = Information::all();
         $ppid = Ppid::all();
-        $news = News::paginate(2);
+        $news = News::paginate(3);
 
         return view('guest.news.index', [
             'profiles' => $profiles,
