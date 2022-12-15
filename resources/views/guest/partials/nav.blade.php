@@ -30,8 +30,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item " data-hover=""><a href="#"><span>Beranda</span></a>
-                </li>
+                <li class="nav-item {{ Request::is('beranda') ? 'active' : '' }}" id="contact" data-hover=""><a href="{{route('beranda')}}"><span>Beranda</span></a></li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Profil</span></a>
                     {{-- @dd($profiles) --}}

@@ -40,7 +40,7 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::redirect('/', '/beranda');
-Route::get('/beranda', [HomeController::class,'home']);
+Route::get('/beranda', [HomeController::class,'home'])->name('beranda');
 Route::get('/profil/{profile:slug}',[HomeController::class,'profile'])->name('profile');
 Route::get('/data/{data:slug}',[HomeController::class,'data'])->name('data');
 Route::get('/law/{law:slug}',[HomeController::class,'law'])->name('law');

@@ -21,6 +21,8 @@ use App\Models\ReportArticle;
 use App\Models\ReportFile;
 use App\Models\Service;
 use App\Models\Contact;
+use App\Models\Banner;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -34,15 +36,19 @@ class HomeController extends Controller
         $report = Report::all();
         $info = Information::all();
         $ppid = Ppid::all();
+        $banners = Banner::latest()->get();
+        $partners = Partner::latest()->get();
 
         return view('guest.home',[
+            'banners'=>$banners,
             'profiles'=>$profiles,
             'services'=>$services,
             'datas'=>$data,
             'laws'=>$laws,
             'reports'=>$report,
             'infos'=>$info,
-            'ppid'=>$ppid
+            'ppid'=>$ppid,
+            'partners'=>$partners,
         ]);
 
     }
