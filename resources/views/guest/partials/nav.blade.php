@@ -94,13 +94,15 @@
                 </li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Informasi</span></a>
-                    @if ($navInfo)
                     <ul class="dropdown-menu">
+                        @if ($navInfo)
+                        <li class="nav-item"><a href="{{route('news.guest.index')}}">Berita</a></li>
+                        <li class="nav-item"><a href="{{route('news-video.guest.index')}}">Berita Vidio</a></li>
                         @foreach ($navInfo as $item)
                         <li class="nav-item"><a href="{{route('info',['info'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
+                        @endif
                     </ul>
-                    @endif
                 </li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Layanan PPID</span></a>

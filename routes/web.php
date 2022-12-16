@@ -26,6 +26,7 @@ use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\guest\NewsGuestController;
+use App\Http\Controllers\guest\NewsVideoGuestController;
 use App\Http\Controllers\ContactController;
 
 /*
@@ -53,6 +54,8 @@ Route::get('/download/{file}/{fileName}',[HomeController::class,'downloadFile'])
 Route::get('/berita',[NewsGuestController::class,'index'])->name('news.guest.index');
 Route::get('/berita/kategori/{category:slug}',[NewsGuestController::class,'category'])->name('news.guest.category');
 Route::get('/berita/{news:slug}',[NewsGuestController::class,'show'])->name('news.guest.show');
+
+Route::get('/berita-video',[NewsVideoGuestController::class,'index'])->name('news-video.guest.index');
 
 Route::get('login', [LoginController::class,'login'])->name('login')->middleware('guest');
 Route::post('login', [LoginController::class,'authenticate'])->name('login.auth');
