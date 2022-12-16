@@ -49,7 +49,18 @@
                             </div>
                         </div>
 
-
+                        <div class="col-md-12">
+                            <div class="mb-10">
+                                <label for="exampleFormControlInput1" class="required form-label">Sampul / Thumbnail </label><br>
+                                <img id="imgThumb" src="{{ asset($newsVideo->thumbnail) }}" style="width:200px" alt="thumbnail" />
+                                <input type="file" class=" @error('thumbnail') is-invalid  @enderror form-control form-control-solid" name="thumbnail"  id="imgInp" accept="image/*" />
+                                @error('thumbnail')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="col-md-12">
                             <div class="mb-10">
@@ -81,6 +92,12 @@
 
 
 $(document).ready(function() {
+    imgInp.onchange = evt => {
+            const [file] = imgInp.files
+            if (file) {
+                imgThumb.src = URL.createObjectURL(file)
+            }
+        }
     $('#summernote').summernote({
         height:'200px',
         callbacks:{

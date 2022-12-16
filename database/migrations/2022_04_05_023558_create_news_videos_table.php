@@ -19,6 +19,7 @@ class CreateNewsVideosTable extends Migration
             $table->text('desc');
             $table->string('slug')->unique();
             $table->string('url');
+            $table->string('thumbnail');
             $table->integer('view')->default(0);
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
