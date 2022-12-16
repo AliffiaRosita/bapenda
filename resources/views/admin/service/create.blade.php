@@ -33,8 +33,7 @@
                         <div class="col-md-7">
                             <div class="mb-10">
                                 <label for="deskripsi" class="required form-label">Deskripsi </label> <br>
-                                <textarea name="deskripsi" id="deskripsi" class="@error('deskripsi') is-invalid  @enderror form-control form-control" cols="30" rows="5">
-                                    {{ old('deskripsi') }}</textarea>
+                                <textarea name="deskripsi" id="deskripsi" class="@error('deskripsi') is-invalid  @enderror form-control form-control" cols="30" rows="5">{{ old('deskripsi') }}</textarea>
                                 @error('deskripsi')
                                 <div class="invalid-feedback d-block">
                                     {{ $message }}

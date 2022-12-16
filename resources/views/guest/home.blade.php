@@ -1,10 +1,10 @@
 @extends('guest.partials.main')
 @section('content')
     <!--
-                          ============================
-                          Slider #1 Section
-                          ============================
-                          -->
+    ============================
+    Slider #1 Section
+    ============================
+    -->
     <section class="slider slider-1" id="slider-1">
         <div class="container-fluid pe-0 ps-0">
             <div class="slider-carousel owl-carousel carousel-navs carousel-dots" data-slide="1" data-slide-rs="1"
@@ -22,10 +22,10 @@
         <!--  End .container-fluid-->
     </section>
     <!--
-                          ============================
-                          About #1 Section
-                          ============================
-                          -->
+    ============================
+    About #1 Section
+    ============================
+    -->
     <section class="about about-1" id="about-1">
         <div class="container">
             <div class="row">
@@ -39,33 +39,23 @@
                 </div>
                 <div class="col-12 col-lg-7">
                     <div class="heading heading-1">
-                        <p class="heading-subtitle heading-subtitle-bg">Complete Commercial And Residential Solar Systems
-                        </p>
-                        <h2 class="heading-title">We Are Pioneers In The World Of Solar & Renewable Energy!</h2>
+                        <p class="heading-subtitle heading-subtitle-bg">{{ $about->sub_title }}</p>
+                        <h2 class="heading-title">{{ $about->title }}</h2>
                     </div>
                     <div class="about-block">
                         <div class="row">
                             <div class="col-12 col-lg-7">
                                 <div class="block-left">
-                                    <p class="paragraph">We drive the transition to more sustainable, reliable & affordable
-                                        energy systems. With our innovative technologies, we energize society, that’s our
-                                        aim!</p>
-                                    <p>The increase in extreme weather events and rising sea levels are unmistakable signs
-                                        of climate change. Roughly 850 million people still live without access to
-                                        electricity, which is the foundation of sustainable development.</p><a
-                                        class="btn btn--secondary" href="page-about.html">read more <i
-                                            class="energia-arrow-right"></i></a>
+                                    <p class="paragraph">{{$about->desc}}</p>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-5">
                                 <div class="block-right">
                                     <div class="prief-set">
-                                        <p>How can we meet the growing demand for electricity while protecting our climate &
-                                            make planet a better place?</p>
                                         <ul class="list-unstyled advantages-list">
-                                            <li>Reliability and performance</li>
-                                            <li>Just-in-time manufacturing</li>
-                                            <li>solar material financing</li>
+                                            @foreach ($about->points as $point)
+                                                <li>{{$point['name']}}</li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -80,158 +70,52 @@
         <!-- End .container-->
     </section>
     <!--
-                          ============================
-                          Features #1 Section
-                          ============================
-                          -->
+    ============================
+    Features #1 Section
+    ============================
+    -->
     <section class="features features-1 bg-overlay bg-overlay-theme2" id="features-1">
         <div class="bg-section"> <img src="{{ asset('guest/assets/images/background/2.jpg') }}" alt="Background" /></div>
         <div class="container">
-            <div class="heading heading-2 heading-light heading-light2">
+            <div class="heading heading-3 text-center">
                 <div class="row">
-                    <div class="col-12 col-lg-5">
-                        <p class="heading-subtitle">Sustainable, Reliable & Affordable Energy!</p>
+                    <div class="col-12 col-lg-6 offset-lg-3">
+                        <p class="heading-subtitle">Badan Pendapatan Daerah Provinsi Kalimantan Timur</p>
+                        <h2 class="heading-title" style="color: white;">Pelayanan Kami</h2>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-lg-5">
-                        <h2 class="heading-title">Providing Value To Our ClientsThrough Ongoing Product & Innovation.</h2>
-                    </div>
-                    <div class="col-12 col-lg-6 offset-lg-1">
-                        <p class="heading-desc">While improving the yield and performance of solar energy products, our PV
-                            industry experience enables us to provide in-depth material sourcing, financing and supply chain
-                            expertise for every step.</p>
-                        <p class="heading-desc">Raw polycrystalline silicon for PV manufacturing. Offered in various grades
-                            and formats including chunks, chips, powder and ingot.</p>
-                        <div class="actions-holder"><a class="btn btn--primary btn--inversed" href="page-contact.html">
-                                get started<i class="energia-arrow-right"></i></a><a class="btn btn--bordered btn--white"
-                                href="page-about.html">explore our plans</a></div>
-                    </div>
+                    <!-- End .col-lg-6-->
                 </div>
                 <!-- End .row-->
             </div>
             <!-- End .heading-->
+            <!-- End .heading-->
             <div class="carousel owl-carousel carousel-dots" data-slide="4" data-slide-rs="2" data-autoplay="true"
                 data-nav="false" data-dots="true" data-space="25" data-loop="true" data-speed="800">
-                <div>
-                    <div class="feature-panel-holder" data-hover="">
-                        <div class="feature-panel">
-                            <div class="feature-icon"><i class="flaticon-024-energy"></i></div>
-                            <div class="feature-content">
-                                <h4>Save Your Money</h4>
-                                <p>Save money on utilities or increase the value of your home by installing solar panels as
-                                    a great option.</p>
-                            </div><a href="page-about.html"><i class="energia-arrow-right"></i> <span>explore more</span>
-                            </a>
+                @foreach ($services as $service)
+                    <div>
+                        <div class="feature-panel-holder" data-hover="">
+                            <div class="feature-panel">
+                                <div class="feature-icon"><img src="{{asset($service->icon)}}" style="height: 65px" alt=""></i></div>
+                                <div class="feature-content">
+                                    <h4>{{$service->title}}</h4>
+                                    <p>{{ $service->desc }}</p>
+                                </div><a href="{{$service->url}}" target="__BLANK"><i class="energia-arrow-right"></i> <span>Lihat</span>
+                                </a>
+                            </div>
+                            <!-- End .feature-panel-->
                         </div>
-                        <!-- End .feature-panel-->
                     </div>
-                </div>
-                <div>
-                    <div class="feature-panel-holder" data-hover="">
-                        <div class="feature-panel">
-                            <div class="feature-icon"><i class="flaticon-028-greenhouse"></i></div>
-                            <div class="feature-content">
-                                <h4>Home Is Energy</h4>
-                                <p>Everyday the sun provides us with abundance of free energy by placing solar panels on
-                                    your roof.</p>
-                            </div><a href="page-about.html"><i class="energia-arrow-right"></i> <span>explore more</span>
-                            </a>
-                        </div>
-                        <!-- End .feature-panel-->
-                    </div>
-                </div>
-                <div>
-                    <div class="feature-panel-holder" data-hover="">
-                        <div class="feature-panel">
-                            <div class="feature-icon"><i class="flaticon-026-world"></i></div>
-                            <div class="feature-content">
-                                <h4>Consult &amp; Planning</h4>
-                                <p>Our remote industrial solar systems are designed to reliably power our clients critical.
-                                </p>
-                            </div><a href="page-about.html"><i class="energia-arrow-right"></i> <span>explore more</span>
-                            </a>
-                        </div>
-                        <!-- End .feature-panel-->
-                    </div>
-                </div>
-                <div>
-                    <div class="feature-panel-holder" data-hover="">
-                        <div class="feature-panel">
-                            <div class="feature-icon"><i class="flaticon-008-plant"></i></div>
-                            <div class="feature-content">
-                                <h4>Certified Engineers</h4>
-                                <p>Our sales engineers on our staff have experience and can design any complete solar
-                                    system.</p>
-                            </div><a href="page-about.html"><i class="energia-arrow-right"></i> <span>explore more</span>
-                            </a>
-                        </div>
-                        <!-- End .feature-panel-->
-                    </div>
-                </div>
-                <div>
-                    <div class="feature-panel-holder" data-hover="">
-                        <div class="feature-panel">
-                            <div class="feature-icon"><i class="flaticon-024-energy"></i></div>
-                            <div class="feature-content">
-                                <h4>Save Your Money</h4>
-                                <p>Save money on utilities or increase the value of your home by installing solar panels as
-                                    a great option.</p>
-                            </div><a href="page-about.html"><i class="energia-arrow-right"></i> <span>explore more</span>
-                            </a>
-                        </div>
-                        <!-- End .feature-panel-->
-                    </div>
-                </div>
-                <div>
-                    <div class="feature-panel-holder" data-hover="">
-                        <div class="feature-panel">
-                            <div class="feature-icon"><i class="flaticon-028-greenhouse"></i></div>
-                            <div class="feature-content">
-                                <h4>Home Is Energy</h4>
-                                <p>Everyday the sun provides us with abundance of free energy by placing solar panels on
-                                    your roof.</p>
-                            </div><a href="page-about.html"><i class="energia-arrow-right"></i> <span>explore more</span>
-                            </a>
-                        </div>
-                        <!-- End .feature-panel-->
-                    </div>
-                </div>
+                @endforeach
             </div>
             <!-- End .carousel-->
-            <div class="row">
-                <div class="col-12 col-lg-4">
-                    <div class="more-features">
-                        <p>If you have any questions or need help, feel free to contact with our team, or you can call us
-                            any time <a href="tel:01061245741">(002) 01061245741</a></p><a
-                            class="btn btn--bordered btn--white" href="page-about.html">
-                            free estimate<i class="energia-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-8">
-                    <!--
-                                  ============================
-                                  Video #1 Section
-                                  ============================
-                                  -->
-                    <div class="video video-1 bg-overlay bg-overlay-video" id="video-1">
-                        <div class="bg-section"><img src="{{ asset('guest/assets/images/video/1.jpg') }}"
-                                alt="background" /></div><a class="popup-video btn-video"
-                            href="https://www.youtube.com/watch?v=nrJtHemSPW4"> <i class="fas fa-play"></i><span>watch our
-                                video!</span></a>
-                        <!-- End .popup-video-->
-                    </div>
-                </div>
-            </div>
-            <!-- End .row-->
         </div>
         <!-- End .container-->
     </section>
     <!--
-                          ============================
-                          services #1 Section
-                          ============================
-                          -->
+    ============================
+    services #1 Section
+    ============================
+    -->
     <section class="services services-1 bg-grey" id="services-1">
         <div class="container">
             <div class="heading heading-3 text-center">
@@ -328,10 +212,10 @@
         <!-- End .container-->
     </section>
     <!--
-                          ============================
-                          Counters #1 Section
-                          ============================
-                          -->
+    ============================
+    Counters #1 Section
+    ============================
+    -->
     <section class="counters counters-1 bg-overlay bg-overlay-theme2" id="counters-1">
         <div class="bg-section"> <img src="{{ asset('guest/assets/images/background/2.jpg') }}" alt="Background" /></div>
         <div class="container">

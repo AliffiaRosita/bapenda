@@ -24,6 +24,7 @@ use App\Models\Contact;
 use App\Models\Banner;
 use App\Models\Partner;
 use App\Models\Infographic;
+use App\Models\About;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,11 +34,15 @@ class HomeController extends Controller
         $banners = Banner::latest()->get();
         $partners = Partner::latest()->get();
         $infographics = Infographic::latest()->take(5)->get();
+        $services = Service::latest()->get();
+        $about = About::first();
 
         return view('guest.home',[
             'banners'=>$banners,
             'partners'=>$partners,
             'infographics'=>$infographics,
+            'services'=>$services,
+            'about'=>$about,
         ]);
 
     }

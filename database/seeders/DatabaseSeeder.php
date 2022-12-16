@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             BannerSeeder::class,
             PartnerSeeder::class,
             InfografisSeeder::class,
+            ServiceSeeder::class,
         ]);
     }
 }
