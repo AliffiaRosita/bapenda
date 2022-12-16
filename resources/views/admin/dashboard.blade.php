@@ -310,21 +310,20 @@
                             <!--begin::Symbol-->
                             <div class="symbol symbol-60px symbol-2by3 me-4">
                                 <div class="symbol-label"
-                                    style="background-image: url('assets/media/stock/600x400/img-17.jpg')"></div>
+                                    style="background-image: url('../{{$news->newsGalleries->first()->img}}')"></div>
                             </div>
                             <!--end::Symbol-->
                             <!--begin::Content-->
                             <div class="d-flex flex-row-fluid align-items-center flex-wrap my-lg-0 me-2">
                                 <!--begin::Title-->
                                 <div class="flex-grow-1 my-lg-0 my-2 me-2">
-                                    <a href="#"
+                                    <a href="{{ route('news.guest.show',['news' => $news->slug]) }}"
                                         class="text-gray-800 fw-bolder text-hover-primary fs-6">{{ $news->title }}</a>
-                                    <span class="text-muted fw-bold d-block pt-1">Visually stunning</span>
                                 </div>
                                 <!--end::Title-->
                                 <!--begin::Section-->
                                 <div class="d-flex align-items-center">
-                                    <a href="#" class="btn btn-icon btn-light btn-sm border-0">
+                                    <a href="{{ route('news.guest.show',['news' => $news->slug]) }}" class="btn btn-icon btn-light btn-sm border-0">
                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                                         <span class="svg-icon svg-icon-2 svg-icon-primary">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -370,7 +369,7 @@
                             <!--begin::Symbol-->
                             <div class="symbol symbol-60px symbol-2by3 me-4">
                                 <div class="symbol-label"
-                                    style="background-image: url('assets/media/stock/600x400/img-17.jpg')"></div>
+                                    style="background-image: url('../{{$newsVideo->thumbnail}}')"></div>
                             </div>
                             <!--end::Symbol-->
                             <!--begin::Content-->
@@ -379,12 +378,11 @@
                                 <div class="flex-grow-1 my-lg-0 my-2 me-2">
                                     <a href="#"
                                         class="text-gray-800 fw-bolder text-hover-primary fs-6">{{ $newsVideo->title }}</a>
-                                    <span class="text-muted fw-bold d-block pt-1">Visually stunning</span>
                                 </div>
                                 <!--end::Title-->
                                 <!--begin::Section-->
                                 <div class="d-flex align-items-center">
-                                    <a href="#" class="btn btn-icon btn-light btn-sm border-0">
+                                    <a href="" class="btn btn-icon btn-light btn-sm border-0">
                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                                         <span class="svg-icon svg-icon-2 svg-icon-primary">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -419,15 +417,15 @@
         var KTWidgets = function() {
 
             var initChart = function() {
-                var e, t, a, o, s, r, i, l, n, c, d, h;
-                var e = document.getElementById("chartvisitor"),
-                    t = (parseInt(KTUtil.css(e, "height")), KTUtil.getCssVariableValue("--bs-gray-500")),
+                var elemen, t, a, o, s, r, i, l, n, c, d, h;
+                elemen = document.getElementById("chartvisitor"),
+                    t = (parseInt(KTUtil.css(elemen, "height")), KTUtil.getCssVariableValue("--bs-gray-500")),
                     a = KTUtil.getCssVariableValue("--bs-gray-200"),
                     o = KTUtil.getCssVariableValue("--bs-info"),
                     s = KTUtil.getCssVariableValue("--bs-light-info");
                 let url = $('meta[name="url_data_chart_visitor"]').attr('content');
                 $.get(url, function(data) {
-                    e && new ApexCharts(e, {
+                    elemen && new ApexCharts(elemen, {
                         series: [{
                             name: "Pengunjung",
                             data: data.visitor

@@ -123,5 +123,36 @@ class NewsSeeder extends Seeder
         DB::insert("INSERT INTO `news_galleries` (`id`, `img`, `news_id`, `created_at`, `updated_at`) VALUES (76, 'news-images/news16-5.jpg', 16, '2022-12-15 08:42:55', '2022-12-15 08:42:55');");
         DB::insert("INSERT INTO `news_galleries` (`id`, `img`, `news_id`, `created_at`, `updated_at`) VALUES (77, 'news-images/news16-6.jpg', 16, '2022-12-15 08:42:55', '2022-12-15 08:42:55');");
         DB::insert("INSERT INTO `news_galleries` (`id`, `img`, `news_id`, `created_at`, `updated_at`) VALUES (78, 'news-images/news16-7.jpg', 16, '2022-12-15 08:42:55', '2022-12-15 08:42:55');");
+
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (1, 16, 3, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (2, 16, 4, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (3, 15, 1, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (4, 15, 2, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (5, 14, 2, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (6, 14, 5, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (7, 13, 2, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (8, 13, 3, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (9, 12, 1, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (10, 12, 5, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (11, 11, 1, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (12, 11, 10, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (13, 10, 1, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (14, 10, 2, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (15, 10, 5, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (16, 9, 1, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (17, 8, 2, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (18, 8, 3, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (19, 8, 4, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (20, 7, 5, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (21, 6, 2, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (22, 6, 3, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (23, 6, 5, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (24, 5, 2, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (25, 5, 5, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (26, 4, 1, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (27, 3, 1, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (28, 2, 1, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (29, 2, 5, NULL, NULL);");
+         DB::insert("INSERT INTO `category_news` (`id`, `news_id`, `category_id`, `created_at`, `updated_at`) VALUES (30, 1, 5, NULL, NULL);");
     }
 }
