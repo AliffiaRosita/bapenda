@@ -116,99 +116,80 @@
     services #1 Section
     ============================
     -->
-    <section class="services services-1 bg-grey" id="services-1">
+    <section class="blog services-1 bg-grey" style="padding-top:100px" id="services-1">
         <div class="container">
             <div class="heading heading-3 text-center">
                 <div class="row">
                     <div class="col-12 col-lg-6 offset-lg-3">
-                        <p class="heading-subtitle">Energize Society With Sustainable Energy!</p>
-                        <h2 class="heading-title">A Leading Supplier Of Solar Materials For Manufacturers, Installers &
-                            Contractors.</h2>
+                        <p class="heading-subtitle">Badan Pendapatan Daerah Provinsi Kalimantan Timur</p>
+                        <h2 class="heading-title">Berita Bapenda</h2>
                     </div>
                     <!-- End .col-lg-6-->
                 </div>
                 <!-- End .row-->
             </div>
             <!-- End .heading-->
-            <div class="carousel owl-carousel carousel-dots dots-side" data-slide="3" data-slide-rs="1"
-                data-autoplay="true" data-nav="false" data-dots="true" data-space="30" data-loop="true"
-                data-speed="800">
-                <div>
-                    <div class="service-panel">
-                        <div class="service-icon"><i class="flaticon-004-solar-panel"></i></div>
-                        <div class="service-content">
-                            <h4><a href="services-turbines.html">solar panels<br />services</a></h4>
-                            <p>The great thing about solar panels is that they do not require a lot of maintenance. However,
-                                still important to get them checked regularly</p>
-                            <ul class="list-unstyled advantages-list">
-                                <li>cleaning of inverter</li>
-                                <li>perform shading tests</li>
-                                <li>90 days repairs warranty</li>
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">read more <i
-                                    class="energia-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- End .service-panel-->
+            <div class="row">
+                @if ($news)
+                @foreach ($news as $item)     
+                <div class="col-12 col-md-6 col-lg-4">
+                         <div class="blog-entry" data-hover="">
+                             <div class="entry-content">
+                                 <div class="entry-meta">
+                                     @php
+                                         $date = date_create($item->created_at);
+                                     @endphp
+                                     <div class="entry-date"><span class="year">{{ date_format($date, 'd F Y') }}</span>
+                                     </div>
+                                     <!-- End .entry-date		-->
+                                     <div class="entry-author">
+                                         <p>{{ $item->user->admin->name }}</p>
+                                     </div>
+                                 </div>
+                                 <div class="entry-title">
+                                     <h4><a href="blog-single.html">
+                                             @if (strlen($item->title) > 55)
+                                                 {{ substr(strip_tags($item->title), 0, 55) . '...' }}
+                                             @else
+                                                 {{ $item->title }}
+                                             @endif
+                                         </a></h4>
+                                 </div>
+                                 <div class="entry-img-wrap">
+                                     <div class="entry-img" style=""><a href="blog-single.html"><img
+                                                 style="height: 200px;width:100%;object-fit:cover"
+                                                 src="{{ $item->newsGalleries->first()->img }}"
+                                                 alt="{{ $item->title }}" /></a></div>
+                                     <div class="entry-category">
+                                         @foreach ($item->categories as $category)
+                                             <a
+                                                 href="{{ route('news.guest.category', ['category' => $category->slug]) }}">{{ $category->name }}</a>
+                                         @endforeach
+                                     </div>
+                                 </div>
+                                 <!-- End .entry-img-->
+                                 <div class="entry-bio">
+                                     {{ substr(strip_tags($item->desc), 0, 180) . '...' }}
+                                 </div>
+                                 <div class="entry-more mt-2"> <a class="btn btn--white btn-bordered" style="width: 165px"
+                                         href="{{ route('news.guest.show', ['news' => $item->slug]) }}">Selengkapnya <i
+                                             class="energia-arrow-right"></i>
+                                            </a>
+                                </div>
+                             </div>
+                             <!-- End .entry-content-->
+                         </div>
+                     </div>
+                @endforeach
+                @endif
+                <div class="row"> 
+                <div class="col-12"> 
+                  <div class="more-blog"><a href="{{route('news.guest.index')}}">Lihat Berita Lainnya </a> </div>
                 </div>
-                <div>
-                    <div class="service-panel">
-                        <div class="service-icon"><i class="flaticon-039-wind-mill"></i></div>
-                        <div class="service-content">
-                            <h4><a href="services-turbines.html">wind turbines<br />services</a></h4>
-                            <p>Wind turbine is an expensive machine, we know very well how important it is that your wind
-                                turbine is always up whenever there is wind.</p>
-                            <ul class="list-unstyled advantages-list">
-                                <li>proactive is better</li>
-                                <li>lower costs for you</li>
-                                <li>maintenance warranty</li>
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">read more <i
-                                    class="energia-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- End .service-panel-->
-                </div>
-                <div>
-                    <div class="service-panel">
-                        <div class="service-icon"><i class="flaticon-013-hydro-power"></i></div>
-                        <div class="service-content">
-                            <h4><a href="services-turbines.html">hydropower plants<br />services</a></h4>
-                            <p>Hydropower systems are capital intensive assets can produce a significant income provided
-                                operated and maintained on high standard.</p>
-                            <ul class="list-unstyled advantages-list">
-                                <li>optimization of assets</li>
-                                <li>operation &amp; maintenance</li>
-                                <li>digitaliztion &amp; automation</li>
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">read more <i
-                                    class="energia-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- End .service-panel-->
-                </div>
-                <div>
-                    <div class="service-panel">
-                        <div class="service-icon"><i class="flaticon-004-solar-panel"></i></div>
-                        <div class="service-content">
-                            <h4><a href="services-turbines.html">solar panels<br />services</a></h4>
-                            <p>The great thing about solar panels is that they do not require a lot of maintenance. However,
-                                still important to get them checked regularly</p>
-                            <ul class="list-unstyled advantages-list">
-                                <li>cleaning of inverter</li>
-                                <li>perform shading tests</li>
-                                <li>90 days repairs warranty</li>
-                            </ul><a class="btn btn--secondary" href="services-turbines.html">read more <i
-                                    class="energia-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- End .service-panel-->
                 </div>
             </div>
-            <!-- End .carousel-->
-            <div class="more-services">
-                <p>Sustainable, reliable & affordable energy systems, <a href="page-services.html">Find Your Solution Now!
-                    </a></p>
-            </div>
-            <!-- End more-services-->
-        </div>
+
+          </div>
         <!-- End .container-->
     </section>
     <!--
@@ -221,118 +202,40 @@
         <div class="container">
             <div class="heading heading-4 heading-light heading-light2">
                 <div class="row">
-                    <div class="col-12 col-lg-5">
-                        <p class="heading-subtitle">Pioneers Of Solar & Renewable Energy!</p>
+                    <div class="col-12 col-lg-12 text-center">
+                        <h2 class="heading-title">Video</h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-lg-5">
-                        <h2 class="heading-title">Commercial, Residential & Industrial Systems!</h2>
+                     @foreach ($newsVideos as $newsVideo)
+                    <div class="col-12 col-md-6 col-lg-4 project-item filter-finance filter-supply">
+                        <div class="project-panel " data-hover="">
+                            <div class="project-panel-holder">
+                                <div class="project-img"><a class="link" href="{{route('news-video.guest.show',['video'=>$newsVideo->slug])}}"></a><img
+                                        src="{{asset($newsVideo->thumbnail)}}" alt="project image" /></div>
+                                <!-- End .project-img-->
+                                <div class="project-content">
+                                    <div class="project-title">
+                                        <h4><a href="{{route('news-video.guest.show',['video'=>$newsVideo->slug])}}">{{$newsVideo->title}}</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <!-- End .project-content -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12 col-lg-6 offset-lg-1">
-                        <p class="heading-desc">Today, our company is one of the most important PV suppliers in the North
-                            America and Europe. Our sales offices and warehouses include PV industry experience enables us
-                            to provide in-depth material sourcing and supply chain expertise for every step of production
-                            and installation process.</p>
-                        <div class="actions-holder"><a class="btn btn--primary btn--inversed" href="page-contact.html">
-                                awards & milestones<i class="energia-arrow-right"></i></a></div>
+                @endforeach
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-3">
+                        <a href="{{route('news-video.guest.index')}}" class=" btn--primary btn btn-bordered w-100">Lihat Video Lainnya</a>
                     </div>
                 </div>
                 <!-- End .row-->
             </div>
             <!-- End .heading-->
             <div class="row">
-                <div class="col-12 col-lg-8">
-                    <div class="img-hotspot">
-                        <div class="img-hotspot-wrap">
-                            <div class="img-hotspot-bg"> <img
-                                    src="{{ asset('guest/assets/images/background/world-map-dark.png') }}"
-                                    alt="image" /></div>
-                            <div class="img-hotspot-pointers">
-                                <div class="img-hotspot-pointer" data-spot-x="29%" data-spot-y="72%">
-                                    <div class="pointer-icon"></div>
-                                    <div class="info" data-info-x="" data-info-y="">
-                                        <div class="border-outer">
-                                            <div class="border-inner"><i class="flaticon-012-mining-1"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="48%" data-spot-y="48%">
-                                    <div class="pointer-icon"></div>
-                                    <div class="info" data-info-x="" data-info-y="">
-                                        <div class="border-outer">
-                                            <div class="border-inner"><i class="flaticon-035-battery"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="75%" data-spot-y="17%">
-                                    <div class="pointer-icon"></div>
-                                    <div class="info" data-info-x="" data-info-y="">
-                                        <div class="border-outer">
-                                            <div class="border-inner"><i class="flaticon-027-energy-tower"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="34%" data-spot-y="9%">
-                                    <div class="pointer-icon"></div>
-                                    <div class="info" data-info-x="" data-info-y="">
-                                        <div class="border-outer">
-                                            <div class="border-inner"><i class="flaticon-032-recycle"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="59%" data-spot-y="21%">
-                                    <div class="pointer-icon"></div>
-                                    <div class="info" data-info-x="" data-info-y="">
-                                        <div class="border-outer">
-                                            <div class="border-inner"><i class="flaticon-030-biology"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="68%" data-spot-y="38%">
-                                    <div class="pointer-icon"></div>
-                                    <div class="info" data-info-x="" data-info-y="">
-                                        <div class="border-outer">
-                                            <div class="border-inner"><i class="flaticon-034-coal"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="img-hotspot-pointer" data-spot-x="15%" data-spot-y="29%">
-                                    <div class="pointer-icon"></div>
-                                    <div class="info" data-info-x="" data-info-y="">
-                                        <div class="border-outer">
-                                            <div class="border-inner"><i class="flaticon-039-wind-mill"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-3 offset-lg-1">
-                    <!-- Start .counter-->
-                    <div class="counter counter-2">
-                        <div class="counter-num"> <span class="counting" data-counterup-nums="6,154">6,154</span>
-                            <h6>projects</h6>
-                        </div>
-                        <div class="counter-desc">
-                            <p>Yet those that embrace change are thriving, building bigger, better, faster, and stronger
-                                products than ever.</p>
-                        </div>
-                    </div>
-                    <!-- End .counter-->
-                    <!-- Start .counter-->
-                    <div class="counter counter-2">
-                        <div class="counter-num"> <span class="counting" data-counterup-nums="2,512">2,512</span>
-                            <h6>employees</h6>
-                        </div>
-                        <div class="counter-desc">
-                            <p>Yet those that embrace change are thriving, building bigger, better, faster, and stronger
-                                products than ever.</p>
-                        </div>
-                    </div>
-                    <!-- End .counter-->
-                </div>
+                
             </div>
             <!-- End .row-->
         </div>
@@ -343,7 +246,7 @@
                           Testimonials #1 Section
                           ============================
                           -->
-    <section class="testimonial testimonial-1 bg-theme2">
+    {{-- <section class="testimonial testimonial-1 bg-theme2">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -402,24 +305,33 @@
             <!-- End .row-->
         </div>
         <!-- End .container-->
-    </section>
+    </section> --}}
     <!--
     ============================
     Projects Modern #1 Section
     ============================
     -->
-    <section class="project-single" id="project-single">
+    <section class="project-single mt-5" id="project-single">
         <!-- End .row-->
+          <div class="heading heading-3 text-center">
+                <div class="row">
+                    <div class="col-12 col-lg-6 offset-lg-3">
+                        <h2 class="heading-title">Infografis</h2>
+                    </div>
+                    <!-- End .col-lg-6-->
+                </div>
+                <!-- End .row-->
+            </div>
         <div class="project-image-carousel projects projects-gallery">
             <div class="carousel owl-carousel carousel-dots carousel-navs" data-slide="4" data-slide-rs="3"
                 data-center="data-center" data-autoplay="true" data-nav="true" data-dots="true" data-space="30"
                 data-loop="true" data-speed="800">
                 @foreach ($infographics as $infographic)
-                    <div class=" ">
+                    <div class="my-auto">
                         <div class="project-panel">
                             <div class="project-panel-holder">
                                 <div class="project-img"><img src="{{ asset($infographic->img) }}"
-                                        style="height: 220px;object-fit:cover" alt=" item" />
+                                        style="height: 320px;object-fit:cover" alt=" item" />
                                     <div class="project-hover">
                                         <div class="project-action">
                                             <div class="project-zoom"><i class="far fa-eye"></i><a
@@ -452,7 +364,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h3 class="d-none">Our Clients</h3>
+                    <h3 class="d-none">Partner Kami</h3>
                 </div>
                 <div class="col-12">
                     <div class="carousel owl-carousel" data-slide="6" data-slide-rs="2" data-autoplay="true"
@@ -473,7 +385,7 @@
                           Contact #1 Section
                           ============================
                           -->
-    <section class="contact contact-1 bg-overlay bg-overlay-theme" id="contact-1">
+    {{-- <section class="contact contact-1 bg-overlay bg-overlay-theme" id="contact-1">
         <div class="bg-section"><img src="{{ asset('guest/assets/images/background/3.jpg') }}" alt="background" /></div>
         <div class="container">
             <div class="contact-panel contact-panel-3">
@@ -593,13 +505,13 @@
             <!-- End .contact-panel-->
         </div>
         <!-- End .container-->
-    </section>
+    </section> --}}
     <!--
                           ============================
                           Blog #1 Section
                           ============================
                           -->
-    <section class="blog blog-1 blog-grid" id="blog-1">
+    {{-- <section class="blog blog-1 blog-grid" id="blog-1">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6 offset-lg-3">
@@ -724,7 +636,7 @@
             <!-- End .row-->
         </div>
         <!-- End .container-->
-    </section>
+    </section> --}}
     <!--
                           ============================
                           Footer #1

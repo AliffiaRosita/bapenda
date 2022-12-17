@@ -21,70 +21,13 @@ class NewsVideoGuestController extends Controller
             'newsVideos'=> $newsVideos,
         ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show(NewsVideo $video)
     {
-        //
+        $newsVideo = NewsVideo::where('slug',$video->slug)->first();
+        $newsVideo->update(['view'=> $newsVideo->view +1]);
+        return view('guest.news-videos.show', [
+            'newsVideo'=> $newsVideo,
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\NewsVideo  $newsVideo
-     * @return \Illuminate\Http\Response
-     */
-    public function show(NewsVideo $newsVideo)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\NewsVideo  $newsVideo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(NewsVideo $newsVideo)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\NewsVideo  $newsVideo
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, NewsVideo $newsVideo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\NewsVideo  $newsVideo
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(NewsVideo $newsVideo)
-    {
-        //
-    }
 }

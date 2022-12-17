@@ -1,4 +1,4 @@
-<link href="{{asset('guest/assets/images/favicon/favicon.png')}}" rel="icon"/>
+<link href="{{asset('img/logo.png')}}" rel="icon"/>
     <!--  Fonts ==
     -->
     <link rel="preconnect" href="https://fonts.gstatic.com"/>

@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="d-none">The Influence of Environmental Conditions in Arctic Regions.</h1>
+                <h1 class="d-none">{{$news->title}}</h1>
             </div>
         </div>
         <div class="row">
@@ -82,8 +82,12 @@
                             </button>
                         </div>
                         <div class="entry-meta">
-                            <div class="entry-category"><a href="blog-grid.html">energy</a><a
-                                    href="blog-grid.html">systems</a></div>
+                            <div class="entry-category">
+                                @foreach ($news->categories as $category)
+                                <a
+                                    href="{{route('news.guest.category',['category'=> $category->slug])}}">{{$category->name}}</a>
+                                @endforeach
+                                </div>
                             @php
                             $date = date_create($news->created_at);
                             @endphp

@@ -45,6 +45,8 @@ Route::get('/beranda', [HomeController::class,'home'])->name('beranda');
 Route::get('/profil/{profile:slug}',[HomeController::class,'profile'])->name('profile');
 Route::get('/data/{data:slug}',[HomeController::class,'data'])->name('data');
 Route::get('/law/{law:slug}',[HomeController::class,'law'])->name('law');
+Route::get('/service/{service:slug}',[HomeController::class,'service'])->name('service');
+Route::get('/service/detail/{service:slug}',[HomeController::class,'serviceDetail'])->name('service.detail');
 Route::get('/report/{report:slug}',[HomeController::class,'report'])->name('report');
 Route::get('/info/{info:slug}',[HomeController::class,'info'])->name('info');
 Route::get('/ppid/{ppid:slug}',[HomeController::class,'ppid'])->name('ppid');
@@ -56,6 +58,7 @@ Route::get('/berita/kategori/{category:slug}',[NewsGuestController::class,'categ
 Route::get('/berita/{news:slug}',[NewsGuestController::class,'show'])->name('news.guest.show');
 
 Route::get('/berita-video',[NewsVideoGuestController::class,'index'])->name('news-video.guest.index');
+Route::get('/berita-video/{video:slug}',[NewsVideoGuestController::class,'show'])->name('news-video.guest.show');
 
 Route::get('login', [LoginController::class,'login'])->name('login')->middleware('guest');
 Route::post('login', [LoginController::class,'authenticate'])->name('login.auth');

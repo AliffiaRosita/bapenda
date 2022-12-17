@@ -49,7 +49,7 @@
                                      </div>
                                  </div>
                                  <div class="entry-title">
-                                     <h4><a href="blog-single.html">
+                                     <h4><a href="{{ route('news.guest.show', ['news' => $item->slug]) }}">
                                              @if (strlen($item->title) > 55)
                                                  {{ substr(strip_tags($item->title), 0, 55) . '...' }}
                                              @else
@@ -58,7 +58,7 @@
                                          </a></h4>
                                  </div>
                                  <div class="entry-img-wrap">
-                                     <div class="entry-img" style=""><a href="blog-single.html"><img
+                                     <div class="entry-img" style=""><a href="{{ route('news.guest.show', ['news' => $item->slug]) }}"><img
                                                  style="height: 200px;width:100%;object-fit:cover"
                                                  src="{{ $item->newsGalleries->first()->img }}"
                                                  alt="{{ $item->title }}" /></a></div>

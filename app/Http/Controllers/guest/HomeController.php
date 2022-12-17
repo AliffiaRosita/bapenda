@@ -25,6 +25,12 @@ use App\Models\Banner;
 use App\Models\Partner;
 use App\Models\Infographic;
 use App\Models\About;
+use App\Models\News;
+use App\Models\NewsVideo;
+use App\Models\ServiceArticle;
+use App\Models\ServiceFile;
+use App\Models\ServiceList;
+use App\Models\ServiceProgram;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -36,6 +42,8 @@ class HomeController extends Controller
         $infographics = Infographic::latest()->take(5)->get();
         $services = Service::latest()->get();
         $about = About::first();
+        $news = News::latest()->take(3)->get();
+        $newsVideos= NewsVideo::latest()->take(3)->get();
 
         return view('guest.home',[
             'banners'=>$banners,
@@ -43,6 +51,8 @@ class HomeController extends Controller
             'infographics'=>$infographics,
             'services'=>$services,
             'about'=>$about,
+            'news'=> $news,
+            'newsVideos'=>$newsVideos,
         ]);
 
     }
@@ -69,6 +79,31 @@ class HomeController extends Controller
             'dataArticle'=> $dataArticle,
             'dataFile'=> $dataFile,
             'data'=> $data,
+        ]);
+    }
+    public function service(ServiceProgram $service)
+    {
+        $service = ServiceProgram::where('slug',$service->slug)->first();
+
+        return view('guest.service.serviceProgram',[
+            'service'=> $service,
+        ]);
+    }
+    public function serviceDetail(ServiceList $service)
+    {
+        $serviceList = ServiceList::where('slug',$service->slug)->first();
+        $serviceListArticle='';
+        $serviceListFile = [];
+        if ($serviceList->type === 'article') {
+            $serviceListArticle = ServiceArticle::where('service_list_id',$service->id)->first();
+        }else{
+            $serviceListFile = ServiceFile::where('service_list_id',$service->id)->get();
+        }
+
+        return view('guest.service.serviceList',[
+            'serviceListArticle'=> $serviceListArticle,
+            'serviceListFile'=> $serviceListFile,
+            'serviceList'=> $serviceList,
         ]);
     }
     public function law(Law $law)

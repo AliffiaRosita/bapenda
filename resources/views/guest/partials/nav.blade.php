@@ -19,7 +19,8 @@
             <!-- End .social-links-->
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-sticky" id="primary-menu"><a class="navbar-brand" href="index.html">
+    <nav class="navbar navbar-expand-lg navbar-sticky" style="padding-left: 10px" id="primary-menu"><a
+            class="navbar-brand" style="padding-right: 10px" href="{{url('/beranda')}}">
             <img class="logo logo-dark w-100" src="{{asset('img/logo-bapenda.png')}}" alt="Energia Logo" /><img
                 class="logo logo-mobile w-100" src="{{asset('img/logo-bapenda.png')}}" alt="Energia Logo" /></a>
         <div class="module-holder module-holder-phone">
@@ -30,7 +31,8 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item {{ Request::is('beranda') ? 'active' : '' }}" id="contact" data-hover=""><a href="{{route('beranda')}}"><span>Beranda</span></a></li>
+                <li class="nav-item {{ Request::is('beranda') ? 'active' : '' }}" id="contact" data-hover=""><a
+                        href="{{route('beranda')}}"><span>Beranda</span></a></li>
                 <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Profil</span></a>
                     {{-- @dd($navProfiles) --}}
@@ -41,25 +43,24 @@
                                 href="{{route('profile',['profile'=>$item])}}"><span>{{$item->title}}</span></a></li>
                         @endforeach
                         @endif
+                        
                     </ul>
                 </li>
                 <li class="nav-item has-dropdown " data-hover=""><a class="dropdown-toggle" href="#"
-                        data-toggle="dropdown"><span>Progam & Layanan</span></a>
+                        data-toggle="dropdown"><span>Program & Layanan</span></a>
 
                     <ul class="dropdown-menu">
-                        <li class=" dropdown-submenu" data-hover=""><a data-toggle="dropdown" href="page-how-works.html"
-                                class="dropdown-toggle"><span>how it works</span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"></a></li>
-                            </ul>
+                        @foreach ($navServices as $service)
+                        <li class="nav-item dropdown-cus has-dropdown" data-hover=""><a data-toggle="dropdown" href="{{route('service',['service'=>$service->slug])}}"
+                            >
+                            <span>{{$service->title}}</span></a>
+                            <div class="dropdown-content">
+                               @foreach ($service->serviceLists as $list)
+                               <a href="{{route('service.detail',['service'=>$list])}}">{{$list->title}}</a>
+                               @endforeach
+                            </div>
                         </li>
-                        <li class="nav-item"><a href="page-team.html"><span>leadership team</span></a></li>
-                        <li class="nav-item"><a href="page-awards.html"><span>awards &amp; recognition</span></a></li>
-                        <li class="nav-item"><a href="page-pricing.html"><span>pricing &amp; plans</span></a></li>
-                        <li class="nav-item"><a href="page-faqs.html"><span>help &amp; fAQs</span></a></li>
-                        <li class="nav-item"><a href="page-gallery.html"><span>our gallery</span></a></li>
-                        <li class="nav-item"><a href="page-careers.html"><span>careers</span></a></li>
-                        <li class="nav-item"><a href="shop-products.html"><span>shop</span></a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class="nav-item has-dropdown" id="departments" data-hover=""><a class="dropdown-toggle"
@@ -114,7 +115,8 @@
                     </ul>
                     @endif
                 </li>
-                <li class="nav-item {{ Request::is('kontak') ? 'active' : '' }}" id="contact" data-hover=""><a href="{{route('contact')}}"><span>Kontak</span></a></li>
+                <li class="nav-item {{ Request::is('kontak') ? 'active' : '' }}" id="contact" data-hover=""><a
+                        href="{{route('contact')}}"><span>Kontak</span></a></li>
             </ul>
             <!--  End .module-holder-->
         </div>

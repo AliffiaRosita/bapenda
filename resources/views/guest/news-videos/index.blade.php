@@ -32,12 +32,12 @@
                     <div class="col-12 col-md-6 col-lg-4 project-item filter-finance filter-supply">
                         <div class="project-panel" data-hover="">
                             <div class="project-panel-holder">
-                                <div class="project-img"><a class="link" href="projects-single.html"></a><img
+                                <div class="project-img"><a class="link" href="{{route('news-video.guest.show',['video'=>$newsVideo->slug])}}"></a><img
                                         src="{{asset($newsVideo->thumbnail)}}" alt="project image" /></div>
                                 <!-- End .project-img-->
                                 <div class="project-content">
                                     <div class="project-title">
-                                        <h4><a href="projects-single.html">{{$newsVideo->title}}</a>
+                                        <h4><a href="{{route('news-video.guest.show',['video'=>$newsVideo->slug])}}">{{$newsVideo->title}}</a>
                                         </h4>
                                     </div>
                                 </div>

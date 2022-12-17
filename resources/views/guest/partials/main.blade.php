@@ -1,6 +1,6 @@
 @php
 use App\Models\Profile;
-use App\Models\Service;
+use App\Models\ServiceProgram;
 use App\Models\Data;
 use App\Models\Law;
 use App\Models\Report;
@@ -8,7 +8,7 @@ use App\Models\Information;
 use App\Models\Ppid;
 
 $navProfiles = Profile::all();
-$navServices = Service::all();
+$navServices = ServiceProgram::all();
 $navData = Data::all();
 $navLaws = Law::all();
 $navReport = Report::all();
@@ -23,8 +23,8 @@ $navPpid = Ppid::all();
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="author" content="Ayman Fikry"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <meta name="description" content="Multi-purpose energy html5 template"/>
-    <title>Home Main - Energia Responsive Bootstrap 5 energy HTML5 Template</title>
+    <meta name="description" content="Bapenda - Badan Pendapatan Daerah Provinsi Kalimantan Timur"/>
+    <title>Bapenda - Badan Pendapatan Daerah Provinsi Kalimantan Timur</title>
     @include('guest.partials.style')
   </head>
   <body>
