@@ -32,7 +32,7 @@
                 <div class="col-12 col-lg-5">
                     <div class="about-img">
                         <div class="about-img-holder bg-overlay">
-                            <div class="bg-section"><img src="{{ asset('guest/assets/images/about/1.jpg') }}"
+                            <div class="bg-section"><img src="{{ asset($about->image) }}"
                                     alt="about Image" /></div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
             <!-- End .heading-->
             <div class="row">
                 @if ($news)
-                @foreach ($news as $item)     
+                @foreach ($news as $item)
                 <div class="col-12 col-md-6 col-lg-4">
                          <div class="blog-entry" data-hover="">
                              <div class="entry-content">
@@ -147,7 +147,7 @@
                                      </div>
                                  </div>
                                  <div class="entry-title">
-                                     <h4><a href="blog-single.html">
+                                     <h4><a href="{{ route('news.guest.show', ['news' => $item->slug]) }}">
                                              @if (strlen($item->title) > 55)
                                                  {{ substr(strip_tags($item->title), 0, 55) . '...' }}
                                              @else
@@ -156,7 +156,7 @@
                                          </a></h4>
                                  </div>
                                  <div class="entry-img-wrap">
-                                     <div class="entry-img" style=""><a href="blog-single.html"><img
+                                     <div class="entry-img" style=""><a href="{{ route('news.guest.show', ['news' => $item->slug]) }}"><img
                                                  style="height: 200px;width:100%;object-fit:cover"
                                                  src="{{ $item->newsGalleries->first()->img }}"
                                                  alt="{{ $item->title }}" /></a></div>
@@ -182,8 +182,8 @@
                      </div>
                 @endforeach
                 @endif
-                <div class="row"> 
-                <div class="col-12"> 
+                <div class="row">
+                <div class="col-12">
                   <div class="more-blog"><a href="{{route('news.guest.index')}}">Lihat Berita Lainnya </a> </div>
                 </div>
                 </div>
@@ -203,7 +203,7 @@
             <div class="heading heading-4 heading-light heading-light2">
                 <div class="row">
                     <div class="col-12 col-lg-12 text-center">
-                        <h2 class="heading-title">Video</h2>
+                        <h2 class="heading-title">Berita Video</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -226,16 +226,14 @@
                     </div>
                 @endforeach
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-3">
-                        <a href="{{route('news-video.guest.index')}}" class=" btn--primary btn btn-bordered w-100">Lihat Video Lainnya</a>
-                    </div>
+                <div class="row">
+                    <div class="col-12 text-center"><a class="btn btn--bordered btn--white"  href="{{route('news-video.guest.index')}}">Lihat Video Lainnya<i class="energia-arrow-right"></i></a></div>
                 </div>
                 <!-- End .row-->
             </div>
             <!-- End .heading-->
             <div class="row">
-                
+
             </div>
             <!-- End .row-->
         </div>
@@ -352,6 +350,13 @@
                 @endforeach
             </div>
             <!-- End .carousel-->
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <div class="projects-load-more">
+                        <a class="btn btn--secondary"  href="{{route('news-video.guest.index')}}">Lihat Lainnya<i class="energia-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- End .container-->
     </section>
