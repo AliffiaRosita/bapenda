@@ -19,7 +19,7 @@ class DataController extends Controller
     public $title = "Data";
     public function index()
     {
-        $datas = Data::all();
+        $datas = Data::latest()->get();
         return view('admin.data.index', [
             'title'=> $this->title,
             'datas'=> $datas,

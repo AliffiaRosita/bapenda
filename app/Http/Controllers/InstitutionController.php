@@ -17,7 +17,7 @@ class InstitutionController extends Controller
     public function index()
     {
         $title = 'Lembaga';
-        $institutions = Institution::all();
+        $institutions = Institution::latest()->get();
         return view('admin.institution.index',compact('title','institutions'));
     }
 

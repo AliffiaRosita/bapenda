@@ -19,7 +19,7 @@ class InformationController extends Controller
     public $title = "Informasi";
     public function index()
     {
-        $informations = Information::all();
+        $informations = Information::latest()->get();
         return view('admin.information.index', [
             'title'=> $this->title,
             'informations'=> $informations,

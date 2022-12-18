@@ -16,7 +16,7 @@ class ProfileController extends Controller
     public $title= "Profil Dinas";
     public function index()
     {
-        $profiles = Profile::all();
+        $profiles = Profile::latest()->get();
         return view('admin.profile.index',[
             "title"=> $this->title,
             "profiles"=> $profiles

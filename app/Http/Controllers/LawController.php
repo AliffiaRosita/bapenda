@@ -19,7 +19,7 @@ class LawController extends Controller
     public $title = "Produk Hukum";
     public function index()
     {
-        $laws = Law::all();
+        $laws = Law::latest()->get();
         return view('admin.law.index', [
             'title'=> $this->title,
             'laws'=> $laws,

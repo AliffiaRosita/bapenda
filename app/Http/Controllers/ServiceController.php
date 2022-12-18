@@ -17,7 +17,7 @@ class ServiceController extends Controller
     public function index()
     {
         $title = "Layanan";
-        $services = Service::all();
+        $services = Service::latest()->get();
         return view('admin.service.index',compact('title','services'));
     }
 

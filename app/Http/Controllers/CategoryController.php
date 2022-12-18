@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public $title = "Kategori";
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::latest()->get();
         return view('admin.categories.index',['title'=>$this->title,'categories'=>$categories]);
     }
 

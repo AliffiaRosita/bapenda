@@ -17,9 +17,9 @@ class BannerController extends Controller
 
     public function index()
     {
-        $banners = Banner::all();
+        $banners = Banner::latest()->get();
         $title = "Banner";
-        
+
         return view('admin.banner.index',compact('banners','title'));
     }
 

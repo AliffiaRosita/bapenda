@@ -19,10 +19,10 @@ class UserController extends Controller
     public $title = "Profile";
     public function index()
     {
-        $users = User::all();
+        $users = User::latest()->get();
         return view('admin.user.index',[
            'users'=> $users,
-           'title'=> $this->title 
+           'title'=> $this->title
         ]);
     }
 
@@ -52,9 +52,9 @@ class UserController extends Controller
             "email"=> 'required|unique:users,email,',
             'password'=> 'min:6'
         ]);
-       
+
         $password = Hash::make($validatedData['password']);
-       
+
         User::create([
             "email"=> $validatedData["email"],
             "password"=> $password
@@ -71,7 +71,7 @@ class UserController extends Controller
             "img"=> $validatedData["foto"],
             "user_id"=> $userId->id
         ]);
-        
+
         return redirect()->route('user.index');
     }
 
@@ -124,7 +124,7 @@ class UserController extends Controller
                 'password'=> 'min:6'
             ]);
             $password = Hash::make($request['password']);
-            
+
         }else{
             $password = $user->password;
         }
@@ -145,7 +145,7 @@ class UserController extends Controller
             "name"=> $validatedData["nama"],
             "img"=> $validatedData["foto"],
         ]);
-        
+
         return redirect()->route('user.show',['user'=>$user]);
     }
 
@@ -164,5 +164,5 @@ class UserController extends Controller
         ]);
     }
 
-    
+
 }

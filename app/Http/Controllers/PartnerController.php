@@ -17,7 +17,7 @@ class PartnerController extends Controller
     public $title = "Partner";
     public function index()
     {
-        $partners = Partner::all();
+        $partners = Partner::latest()->get();
         return view('admin.partners.index',['title'=>$this->title,'partners'=>$partners]);
     }
 

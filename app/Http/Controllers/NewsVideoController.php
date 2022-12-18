@@ -18,7 +18,7 @@ class NewsVideoController extends Controller
     public $title= 'Berita Video';
     public function index()
     {
-        $newsVideos = NewsVideo::all();
+        $newsVideos = NewsVideo::latest()->get();
         return view('admin.news_video.index',[
             "title"=> $this->title,
             "newsVideos"=> $newsVideos

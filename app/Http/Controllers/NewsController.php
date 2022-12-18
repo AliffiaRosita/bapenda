@@ -23,7 +23,7 @@ class NewsController extends Controller
 
     public function index()
     {
-        $news = News::with(['newsGalleries','user'])->get();
+        $news = News::with(['newsGalleries','user'])->latest()->get();
         return view('admin.news.index',['title'=>$this->title,'news'=>$news]);
     }
 

@@ -18,7 +18,7 @@ class InfographicController extends Controller
     public $title = "Infografis";
     public function index()
     {
-        $infographics = Infographic::all();
+        $infographics = Infographic::latest()->get();
         return view('admin.infographic.index',[
             "title"=> $this->title,
             "infographics" => $infographics

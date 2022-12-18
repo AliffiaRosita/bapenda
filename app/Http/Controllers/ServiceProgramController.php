@@ -18,7 +18,7 @@ class ServiceProgramController extends Controller
 
     public function index()
     {
-        $servicePrograms = ServiceProgram::with(['serviceLists'])->get();
+        $servicePrograms = ServiceProgram::with(['serviceLists'])->latest()->get();
         return view('admin.service_program.index',[
             "title"=> $this->title,
             "servicePrograms"=> $servicePrograms

@@ -19,7 +19,7 @@ class ReportController extends Controller
     public $title = "Laporan Berkala";
     public function index()
     {
-        $reports = Report::all();
+        $reports = Report::latest()->get();
         return view('admin.report.index', [
             'title'=> $this->title,
             'reports'=> $reports,

@@ -19,7 +19,7 @@ class PpidController extends Controller
     public $title = "Layanan PPID";
     public function index()
     {
-        $ppids = Ppid::all();
+        $ppids = Ppid::latest()->get();
         return view('admin.ppid.index', [
             'title'=> $this->title,
             'ppids'=> $ppids,

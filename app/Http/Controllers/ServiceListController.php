@@ -21,7 +21,7 @@ class ServiceListController extends Controller
     public function index(ServiceProgram $serviceProgram)
     {
 
-        $serviceLists = ServiceList::where('service_program_id',$serviceProgram->id)->get();
+        $serviceLists = ServiceList::where('service_program_id',$serviceProgram->id)->latest()->get();
         return view('admin.service_program.service_list.index', [
             'title'=> $this->title,
             'serviceLists'=> $serviceLists,
