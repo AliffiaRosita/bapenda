@@ -353,7 +353,7 @@
             <div class="row mt-3">
                 <div class="col-12 text-center">
                     <div class="projects-load-more">
-                        <a class="btn btn--secondary"  href="{{route('news-video.guest.index')}}">Lihat Lainnya<i class="energia-arrow-right"></i></a>
+                        <a class="btn btn--secondary"  href="{{route('infographic')}}">Lihat Lainnya<i class="energia-arrow-right"></i></a>
                     </div>
                 </div>
             </div>

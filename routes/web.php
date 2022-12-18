@@ -57,6 +57,8 @@ Route::get('/berita',[NewsGuestController::class,'index'])->name('news.guest.ind
 Route::get('/berita/kategori/{category:slug}',[NewsGuestController::class,'category'])->name('news.guest.category');
 Route::get('/berita/{news:slug}',[NewsGuestController::class,'show'])->name('news.guest.show');
 
+Route::get('/infografis',[HomeController::class,'infographic'])->name('infographic');
+
 Route::get('/berita-video',[NewsVideoGuestController::class,'index'])->name('news-video.guest.index');
 Route::get('/berita-video/{video:slug}',[NewsVideoGuestController::class,'show'])->name('news-video.guest.show');
 

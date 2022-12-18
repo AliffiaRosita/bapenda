@@ -192,4 +192,13 @@ class HomeController extends Controller
             'contact'=>$contact,
         ]);
     }
+
+    public function infographic()
+    {
+        $infographics = Infographic::paginate(9);
+
+        return view('guest.infographic', [
+            'infographics'=> $infographics,
+        ]);
+    }
 }
