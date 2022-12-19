@@ -44,35 +44,35 @@ class DataSeeder extends Seeder
         $datafiles = [
             [
                 'title' => 'Potensi Kendaraan Bermotor 2018',
-                'file'=>'data-file/potensi-2018',
+                'file'=>'data-file/potensi-2018.pdf',
                 'data_id'=>1,
 				'created_at'=>Carbon::now(),
 				'updated_at'=>Carbon::now()
             ],
             [
                 'title' => 'Potensi Kendaraan Bermotor 2019',
-                'file'=>'data-file/potensi-2019',
+                'file'=>'data-file/potensi-2019.pdf',
                 'data_id'=>1,
 				'created_at'=>Carbon::now(),
 				'updated_at'=>Carbon::now()
             ],
             [
                 'title' => 'Potensi Kendaraan Bermotor 2020',
-                'file'=>'data-file/potensi-2020',
+                'file'=>'data-file/potensi-2020.pdf',
                 'data_id'=>1,
 				'created_at'=>Carbon::now(),
 				'updated_at'=>Carbon::now()
             ],
             [
                 'title' => 'Potensi Kendaraan Bermotor 2021',
-                'file'=>'data-file/potensi-2021',
+                'file'=>'data-file/potensi-2021.pdf',
                 'data_id'=>1,
 				'created_at'=>Carbon::now(),
 				'updated_at'=>Carbon::now()
             ],
             [
                 'title' => 'Potensi Kendaraan Bermotor 2022',
-                'file'=>'data-file/potensi-2022',
+                'file'=>'data-file/potensi-2022.pdf',
                 'data_id'=>1,
 				'created_at'=>Carbon::now(),
 				'updated_at'=>Carbon::now()
