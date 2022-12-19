@@ -38,6 +38,10 @@ class VisitorController extends Controller
 		}
 		$amountVisitorToday = Visitor::where('date',$date->toDateString())->groupBy('ip')->count();
 
+		$amountVisitorThisMonth = Visitor::whereMonth('date',$date->month)->count();
+
+		$amountVisitorThisYear = Visitor::whereYear('date',$date->year)->count();
+
 		$totalVisitor = Visitor::count();
 
 		$limitTime = $date->subMinutes(3);
@@ -46,6 +50,8 @@ class VisitorController extends Controller
 
 		$data = [
 			'amountVisitorToday'=>$amountVisitorToday,
+			'amountVisitorThisMonth'=>$amountVisitorThisMonth,
+			'amountVisitorThisYear'=>$amountVisitorThisYear,
 			'totalVisitor'=>$totalVisitor,
 			'onlineVisitor'=>$onlineVisitor,
             'ip_address'=>$ipAddress

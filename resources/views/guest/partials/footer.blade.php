@@ -1,3 +1,7 @@
+@php
+use App\Models\Visitor;
+$totalVisitor = Visitor::count();
+@endphp
 <footer class="footer footer-1">
     <div class="footer-top">
         <div class="container">
@@ -66,16 +70,37 @@
                         <div class="footer-widget-title">
                             <h5 class="text-center">Statistik Pengunjung</h5>
                         </div>
+                        <div class="tick" data-value="{{sprintf("%08d", $totalVisitor);}}" id="visitor">
+                            <span id="my-flip" data-view="flip"></span>
+                        </div>
                         <div class="widget-content">
-                            Users Today : 95 <br>
-                            Users Yesterday : 113 <br>
-                            This Month : 1298 <br>
-                            This Year : 39931 <br>
-                            Total Users : 63945 <br>
-                            Views Today : 285 <br>
-                            Total views : 205474 <br>
-                            Who's Online : 1 <br>
-                            Your IP Address : 125.160.113.253
+                            <table width="100%" class="mt-2">
+                                <tr>
+                                    <td width="55%">Pengunjung Hari ini</td>
+                                    <td width="5%">:</td>
+                                    <td class="text-end"><span class="badge bg-primary  mt-2" id="today-visitor"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Pengunjung Bulan ini</td>
+                                    <td>:</td>
+                                    <td class="text-end"><span class="badge bg-secondary  mt-2" id="month-visitor"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Pengunjung Tahun ini</td>
+                                    <td>:</td>
+                                    <td class="text-end"><span class="badge bg-danger  mt-2" id="year-visitor"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Total Pengunjung</td>
+                                    <td>:</td>
+                                    <td class="text-end"><span class="badge bg-warning  mt-2" id="total-visitor"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Pengunjung Online</td>
+                                    <td>:</td>
+                                    <td class="text-end"><span class="badge bg-success  mt-2" id="online-visitor"></span></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>

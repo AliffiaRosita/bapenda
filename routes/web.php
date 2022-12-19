@@ -133,5 +133,5 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     Route::post('logout',[LoginController::class,'logout'])->name('logout');
 });
 
-Route::get('getvisitors', [VisitorController::class,'getVisitor']);
+Route::get('getvisitors', [VisitorController::class,'getVisitor'])->name('getVisitor');;
 

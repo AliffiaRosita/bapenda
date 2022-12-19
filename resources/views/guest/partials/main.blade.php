@@ -24,6 +24,7 @@ $navPpid = Ppid::all();
     <meta name="author" content="Ayman Fikry"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="description" content="Bapenda - Badan Pendapatan Daerah Provinsi Kalimantan Timur"/>
+    <meta name="url_getvisitor" content="{{ route('getVisitor') }}">
     <title>Bapenda - Badan Pendapatan Daerah Provinsi Kalimantan Timur</title>
     @include('guest.partials.style')
   </head>
@@ -57,7 +58,18 @@ $navPpid = Ppid::all();
     <!--  Footer Scripts==
     -->
     <script src="{{asset('guest/assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('guest/assets/js/vendor/flip.min.js')}}"></script>
     <script src="{{asset('guest/assets/js/vendor.js')}}"></script>
     <script src="{{asset('guest/assets/js/functions.js')}}"></script>
+    <script>
+        let url = $('meta[name="url_getvisitor"]').attr('content');
+           $.getJSON(`${url}`, function(dt) {
+               $("#today-visitor").html(dt.amountVisitorToday)
+               $("#total-visitor").html(dt.totalVisitor)
+               $("#online-visitor").html(dt.onlineVisitor)
+               $("#month-visitor").html(dt.amountVisitorThisMonth)
+               $("#year-visitor").html(dt.amountVisitorThisYear)
+           });
+    </script>
   </body>
 </html>
