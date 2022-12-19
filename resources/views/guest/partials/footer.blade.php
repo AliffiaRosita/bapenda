@@ -9,16 +9,11 @@ $totalVisitor = Visitor::count();
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3">
                     <div class="footer-widget widget-links">
                         <div class="footer-widget-title">
-                            <h5 class="text-center">Kalender</h5>
+                            <h5 class="text-center">Tentang Kami</h5>
                         </div>
+                        <img class="img-fluid px-4" src="{{asset('img/logo-bapenda.png')}}" alt="client"/>
                         <div class="widget-content">
-                            <ul>
-                                <li><a href="page-about.html">About Us</a></li>
-                                <li><a href="page-team.html">Meet Our Team</a></li>
-                                <li><a href="blog-grid.html">News & Media</a></li>
-                                <li><a href="projects-standard.html">Our Projects</a></li>
-                                <li><a href="page-contact.html">contact</a></li>
-                            </ul>
+                            <p>Bapenda Provinsi Kalimantan Timur Merupakan unsur pelaksana urusan pemerintahan di bidang pendapatan daerah  dan mempunyai Tugas Pokok melaksanakan urusan pemerintahan daerah di bidang pajak daerah, retribusi dan pendapatan lain-lain, dana perimbangan, perencanaan, pembinaan dan pengawasan pendapatan.</p>
                         </div>
                     </div>
                 </div>
@@ -119,6 +114,11 @@ $totalVisitor = Visitor::count();
                     <div class="footer-copyright">
                         <div class="copyright"><span>&copy; Copyright 2022 - Badan Pendapatan Daerah Provinsi Kalimantan
                                 Timur </span>
+                                <ul class="list-unstyled social-icons">
+                                    <li> <a class="share-facebook" href="javascript:void(0)"><i class="energia-facebook"></i>facebook </a></li>
+                                    <li> <a class="share-twitter" href="javascript:void(0)"><i class="energia-twitter"></i>twitter</a></li>
+                                    <li> <a class="share-youtube" href="javascript:void(0)"><i class="energia-youtube"></i>youtube</a></li>
+                                  </ul>
                         </div>
                     </div>
                 </div>
