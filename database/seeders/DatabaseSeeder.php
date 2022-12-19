@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             LawSeeder::class,
             ReportSeeder::class,
             PpidSeeder::class,
+            ProfileSeeder::class,
         ]);
     }
 }
