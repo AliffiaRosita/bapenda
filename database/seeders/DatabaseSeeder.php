@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             NewsVideoSeeder::class,
             DataSeeder::class,
             LawSeeder::class,
+            ReportSeeder::class,
         ]);
     }
 }
