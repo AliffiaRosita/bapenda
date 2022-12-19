@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             DataSeeder::class,
             LawSeeder::class,
             ReportSeeder::class,
+            PpidSeeder::class,
         ]);
     }
 }
