@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             ReportSeeder::class,
             PpidSeeder::class,
             ProfileSeeder::class,
+            ServiceProgramSeeder::class,
         ]);
     }
 }
