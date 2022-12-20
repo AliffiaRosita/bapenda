@@ -95,7 +95,7 @@
                     <div>
                         <div class="feature-panel-holder" data-hover="">
                             <div class="feature-panel">
-                                <div class="feature-icon"><img src="{{asset($service->icon)}}" style="height: 65px" alt=""></i></div>
+                                <div class="feature-icon"><img src="{{asset($service->icon)}}" style="height: 65px" alt=""></div>
                                 <div class="feature-content">
                                     <h4>{{$service->title}}</h4>
                                     <p>{{ $service->desc }}</p>
