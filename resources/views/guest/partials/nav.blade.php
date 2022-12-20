@@ -33,22 +33,21 @@
             <ul class="navbar-nav me-auto">
                 <li class="nav-item {{ Request::is('beranda') ? 'active' : '' }}" id="contact" data-hover=""><a
                         href="{{route('beranda')}}"><span>Beranda</span></a></li>
-                <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
+                <li class="nav-item has-dropdown {{request()->segment(1) == 'profil' ?'active': ''}}" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Profil</span></a>
                     {{-- @dd($navProfiles) --}}
                     <ul class="dropdown-menu">
                         @if ($navProfiles)
                         @foreach ($navProfiles as $item)
-                        <li class="nav-item"><a
+                        <li class="nav-item {{request()->segment(2) == $item->slug ?'current': ''}}"><a
                                 href="{{route('profile',['profile'=>$item])}}"><span>{{$item->title}}</span></a></li>
                         @endforeach
                         @endif
-                        
+
                     </ul>
                 </li>
-                <li class="nav-item has-dropdown " data-hover=""><a class="dropdown-toggle" href="#"
+                <li class="nav-item has-dropdown {{request()->segment(1) == 'service' ?'active': ''}}" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Program & Layanan</span></a>
-
                     <ul class="dropdown-menu">
                         @foreach ($navServices as $service)
                         <li class="nav-item dropdown-cus has-dropdown" data-hover=""><a data-toggle="dropdown" href="{{route('service',['service'=>$service->slug])}}"
@@ -63,54 +62,54 @@
                         @endforeach
                     </ul>
                 </li>
-                <li class="nav-item has-dropdown" id="departments" data-hover=""><a class="dropdown-toggle"
+                <li class="nav-item has-dropdown {{request()->segment(1) == 'data' ?'active': ''}}" id="departments" data-hover=""><a class="dropdown-toggle"
                         href="page-services.html" data-toggle="dropdown"><span>Data</span></a>
                     @if ($navData)
                     <ul class="dropdown-menu">
                         @foreach ($navData as $item)
-                        <li class="nav-item"><a href="{{route('data',['data'=>$item])}}">{{$item->title}}</a></li>
+                        <li class="nav-item {{request()->segment(2) == $item->slug ?'current': ''}}"><a href="{{route('data',['data'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>
                     @endif
                 </li>
-                <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
+                <li class="nav-item has-dropdown {{request()->segment(1) == 'law' ?'active': ''}}" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Produk Hukum</span></a>
                     @if ($navLaws)
                     <ul class="dropdown-menu">
                         @foreach ($navLaws as $item)
-                        <li class="nav-item"><a href="{{route('law',['law'=>$item])}}">{{$item->title}}</a></li>
+                        <li class="nav-item {{request()->segment(2) == $item->slug ?'current': ''}}"><a href="{{route('law',['law'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>
                     @endif
                 </li>
-                <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
+                <li class="nav-item has-dropdown {{request()->segment(1) == 'report' ?'active': ''}}" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Laporan Berkala</span></a>
                     @if ($navReport)
                     <ul class="dropdown-menu">
                         @foreach ($navReport as $item)
-                        <li class="nav-item"><a href="{{route('report',['report'=>$item])}}">{{$item->title}}</a></li>
+                        <li class="nav-item {{request()->segment(2) == $item->slug ?'current': ''}}"><a href="{{route('report',['report'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>
                     @endif
                 </li>
-                <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
+                <li class="nav-item has-dropdown {{request()->segment(1) == 'info' || request()->segment(1) == 'berita' || request()->segment(1) == 'berita-video'?'active': ''}}" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Informasi</span></a>
                     <ul class="dropdown-menu">
                         @if ($navInfo)
-                        <li class="nav-item"><a href="{{route('news.guest.index')}}">Berita</a></li>
-                        <li class="nav-item"><a href="{{route('news-video.guest.index')}}">Berita Vidio</a></li>
+                        <li class="nav-item {{request()->segment(1) == 'berita' ?'current': ''}}"><a href="{{route('news.guest.index')}}">Berita</a></li>
+                        <li class="nav-item {{request()->segment(1) == 'berita-video' ?'current': ''}}"><a href="{{route('news-video.guest.index')}}">Berita Vidio</a></li>
                         @foreach ($navInfo as $item)
-                        <li class="nav-item"><a href="{{route('info',['info'=>$item])}}">{{$item->title}}</a></li>
+                        <li class="nav-item {{request()->segment(2) == $item->slug ?'current': ''}}"><a href="{{route('info',['info'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                         @endif
                     </ul>
                 </li>
-                <li class="nav-item has-dropdown" data-hover=""><a class="dropdown-toggle" href="#"
+                <li class="nav-item has-dropdown {{request()->segment(1) == 'ppid' ?'active': ''}}" data-hover=""><a class="dropdown-toggle" href="#"
                         data-toggle="dropdown"><span>Layanan PPID</span></a>
                     @if ($navPpid)
                     <ul class="dropdown-menu">
                         @foreach ($navPpid as $item)
-                        <li class="nav-item"><a href="{{route('ppid',['ppid'=>$item])}}">{{$item->title}}</a></li>
+                        <li class="nav-item {{request()->segment(2) == $item->slug ?'current': ''}}"><a href="{{route('ppid',['ppid'=>$item])}}">{{$item->title}}</a></li>
                         @endforeach
                     </ul>
                     @endif
