@@ -11,8 +11,8 @@
                  <div class="col-12">
                      <div class="breadcrumb-wrap">
                          <ol class="breadcrumb">
-                             <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
-                             <li class="breadcrumb-item"><a href="blog-grid.html">Berita</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('beranda') }}">Beranda</a></li>
+                             <li class="breadcrumb-item"><a href="{{ route('news-video.guest.index') }}">Berita Video</a></li>
                              <li class="breadcrumb-item active" aria-current="page">{{ $newsVideo->title }}</li>
                          </ol>
                      </div>

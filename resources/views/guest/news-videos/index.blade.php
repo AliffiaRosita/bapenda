@@ -10,7 +10,7 @@
                              <h1 class="title-heading">Berita Vidio</h1>
                              <p class="text-center"></p>
                              <ol class="breadcrumb breadcrumb-light d-flex justify-content-center">
-                                 <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('beranda') }}">Beranda</a></li>
                                  <li class="breadcrumb-item active" aria-current="page">Berita Vidio</li>
                              </ol>
                              <!-- End .breadcrumb-->
