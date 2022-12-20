@@ -71,5 +71,6 @@ $navPpid = Ppid::all();
                $("#year-visitor").html(dt.amountVisitorThisYear)
            });
     </script>
+    @stack('script')
   </body>
 </html>

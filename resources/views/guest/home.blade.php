@@ -1,10 +1,10 @@
 @extends('guest.partials.main')
 @section('content')
     <!--
-    ============================
-    Slider #1 Section
-    ============================
-    -->
+        ============================
+        Slider #1 Section
+        ============================
+        -->
     <section class="slider slider-1" id="slider-1">
         <div class="container-fluid pe-0 ps-0">
             <div class="slider-carousel owl-carousel carousel-navs carousel-dots" data-slide="1" data-slide-rs="1"
@@ -22,18 +22,17 @@
         <!--  End .container-fluid-->
     </section>
     <!--
-    ============================
-    About #1 Section
-    ============================
-    -->
+        ============================
+        About #1 Section
+        ============================
+        -->
     <section class="about about-1" id="about-1">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-5">
                     <div class="about-img">
                         <div class="about-img-holder bg-overlay">
-                            <div class="bg-section"><img src="{{ asset($about->image) }}"
-                                    alt="about Image" /></div>
+                            <div class="bg-section"><img src="{{ asset($about->image) }}" alt="about Image" /></div>
                         </div>
                     </div>
                 </div>
@@ -46,7 +45,7 @@
                         <div class="row">
                             <div class="col-12 col-lg-7">
                                 <div class="block-left">
-                                    <p class="paragraph">{{$about->desc}}</p>
+                                    <p class="paragraph">{{ $about->desc }}</p>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-5">
@@ -54,7 +53,7 @@
                                     <div class="prief-set">
                                         <ul class="list-unstyled advantages-list">
                                             @foreach ($about->points as $point)
-                                                <li>{{$point['name']}}</li>
+                                                <li>{{ $point['name'] }}</li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -70,10 +69,10 @@
         <!-- End .container-->
     </section>
     <!--
-    ============================
-    Features #1 Section
-    ============================
-    -->
+        ============================
+        Features #1 Section
+        ============================
+        -->
     <section class="features features-1 bg-overlay bg-overlay-theme2" id="features-1">
         <div class="bg-section"> <img src="{{ asset('guest/assets/images/background/2.jpg') }}" alt="Background" /></div>
         <div class="container">
@@ -95,11 +94,13 @@
                     <div>
                         <div class="feature-panel-holder" data-hover="">
                             <div class="feature-panel">
-                                <div class="feature-icon"><img src="{{asset($service->icon)}}" style="height: 65px" alt=""></div>
+                                <div class="feature-icon"><img src="{{ asset($service->icon) }}" style="height: 65px"
+                                        alt=""></div>
                                 <div class="feature-content">
-                                    <h4>{{$service->title}}</h4>
+                                    <h4>{{ $service->title }}</h4>
                                     <p>{{ $service->desc }}</p>
-                                </div><a href="{{$service->url}}" target="__BLANK"><i class="energia-arrow-right"></i> <span>Lihat</span>
+                                </div><a href="{{ $service->url }}" target="__BLANK"><i class="energia-arrow-right"></i>
+                                    <span>Lihat</span>
                                 </a>
                             </div>
                             <!-- End .feature-panel-->
@@ -112,17 +113,17 @@
         <!-- End .container-->
     </section>
     <!--
-    ============================
-    services #1 Section
-    ============================
-    -->
+        ============================
+        services #1 Section
+        ============================
+        -->
     <section class="blog services-1 bg-grey" style="padding-top:100px" id="services-1">
         <div class="container">
             <div class="heading heading-3 text-center">
                 <div class="row">
                     <div class="col-12 col-lg-6 offset-lg-3">
                         <p class="heading-subtitle">Badan Pendapatan Daerah Provinsi Kalimantan Timur</p>
-                        <h2 class="heading-title">Berita Bapenda</h2>
+                        <h2 class="heading-title">Berita</h2>
                     </div>
                     <!-- End .col-lg-6-->
                 </div>
@@ -131,74 +132,78 @@
             <!-- End .heading-->
             <div class="row">
                 @if ($news)
-                @foreach ($news as $item)
-                <div class="col-12 col-md-6 col-lg-4">
-                         <div class="blog-entry" data-hover="">
-                             <div class="entry-content">
-                                 <div class="entry-meta">
-                                     @php
-                                         $date = date_create($item->created_at);
-                                     @endphp
-                                     <div class="entry-date"><span class="year">{{ date_format($date, 'd F Y') }}</span>
-                                     </div>
-                                     <!-- End .entry-date		-->
-                                     <div class="entry-author">
-                                         <p>{{ $item->user->admin->name }}</p>
-                                     </div>
-                                 </div>
-                                 <div class="entry-title">
-                                     <h4><a href="{{ route('news.guest.show', ['news' => $item->slug]) }}">
-                                             @if (strlen($item->title) > 55)
-                                                 {{ substr(strip_tags($item->title), 0, 55) . '...' }}
-                                             @else
-                                                 {{ $item->title }}
-                                             @endif
-                                         </a></h4>
-                                 </div>
-                                 <div class="entry-img-wrap">
-                                     <div class="entry-img" style=""><a href="{{ route('news.guest.show', ['news' => $item->slug]) }}"><img
-                                                 style="height: 200px;width:100%;object-fit:cover"
-                                                 src="{{ $item->newsGalleries->first()->img }}"
-                                                 alt="{{ $item->title }}" /></a></div>
-                                     <div class="entry-category">
-                                         @foreach ($item->categories as $category)
-                                             <a
-                                                 href="{{ route('news.guest.category', ['category' => $category->slug]) }}">{{ $category->name }}</a>
-                                         @endforeach
-                                     </div>
-                                 </div>
-                                 <!-- End .entry-img-->
-                                 <div class="entry-bio">
-                                     {{ substr(strip_tags($item->desc), 0, 180) . '...' }}
-                                 </div>
-                                 <div class="entry-more mt-2"> <a class="btn btn--white btn-bordered" style="width: 165px"
-                                         href="{{ route('news.guest.show', ['news' => $item->slug]) }}">Selengkapnya <i
-                                             class="energia-arrow-right"></i>
-                                            </a>
+                    @foreach ($news as $item)
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="blog-entry" data-hover="">
+                                <div class="entry-content">
+                                    <div class="entry-meta">
+                                        @php
+                                            $date = date_create($item->created_at);
+                                        @endphp
+                                        <div class="entry-date"><span
+                                                class="year">{{ date_format($date, 'd F Y') }}</span>
+                                        </div>
+                                        <!-- End .entry-date		-->
+                                        <div class="entry-author">
+                                            <p>{{ $item->user->admin->name }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="entry-title">
+                                        <h4><a href="{{ route('news.guest.show', ['news' => $item->slug]) }}">
+                                                @if (strlen($item->title) > 55)
+                                                    {{ substr(strip_tags($item->title), 0, 55) . '...' }}
+                                                @else
+                                                    {{ $item->title }}
+                                                @endif
+                                            </a></h4>
+                                    </div>
+                                    <div class="entry-img-wrap">
+                                        <div class="entry-img" style=""><a
+                                                href="{{ route('news.guest.show', ['news' => $item->slug]) }}"><img
+                                                    style="height: 200px;width:100%;object-fit:cover"
+                                                    src="{{ $item->newsGalleries->first()->img }}"
+                                                    alt="{{ $item->title }}" /></a></div>
+                                        <div class="entry-category">
+                                            @foreach ($item->categories as $category)
+                                                <a
+                                                    href="{{ route('news.guest.category', ['category' => $category->slug]) }}">{{ $category->name }}</a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <!-- End .entry-img-->
+                                    <div class="entry-bio">
+                                        {{ substr(strip_tags($item->desc), 0, 180) . '...' }}
+                                    </div>
+                                    <div class="entry-more mt-2"> <a class="btn btn--white btn-bordered"
+                                            style="width: 165px"
+                                            href="{{ route('news.guest.show', ['news' => $item->slug]) }}">Selengkapnya <i
+                                                class="energia-arrow-right"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                             </div>
-                             <!-- End .entry-content-->
-                         </div>
-                     </div>
-                @endforeach
+                                <!-- End .entry-content-->
+                            </div>
+                        </div>
+                    @endforeach
                 @endif
                 <div class="row">
-                <div class="col-12">
-                  <div class="more-blog"><a href="{{route('news.guest.index')}}">Lihat Berita Lainnya </a> </div>
-                </div>
+                    <div class="col-12">
+                        <div class="more-blog"><a href="{{ route('news.guest.index') }}">Lihat Berita Lainnya </a> </div>
+                    </div>
                 </div>
             </div>
 
-          </div>
+        </div>
         <!-- End .container-->
     </section>
     <!--
-    ============================
-    Counters #1 Section
-    ============================
-    -->
+        ============================
+        Counters #1 Section
+        ============================
+        -->
     <section class="counters counters-1 bg-overlay bg-overlay-theme2" id="counters-1">
-        <div class="bg-section"> <img src="{{ asset('guest/assets/images/background/2.jpg') }}" alt="Background" /></div>
+        <div class="bg-section"> <img src="{{ asset('guest/assets/images/background/2.jpg') }}" alt="Background" />
+        </div>
         <div class="container">
             <div class="heading heading-4 heading-light heading-light2">
                 <div class="row">
@@ -207,27 +212,31 @@
                     </div>
                 </div>
                 <div class="row">
-                     @foreach ($newsVideos as $newsVideo)
-                    <div class="col-12 col-md-6 col-lg-4 project-item filter-finance filter-supply">
-                        <div class="project-panel " data-hover="">
-                            <div class="project-panel-holder">
-                                <div class="project-img"><a class="link" href="{{route('news-video.guest.show',['video'=>$newsVideo->slug])}}"></a><img
-                                        src="{{asset($newsVideo->thumbnail)}}" alt="project image" /></div>
-                                <!-- End .project-img-->
-                                <div class="project-content">
-                                    <div class="project-title">
-                                        <h4><a href="{{route('news-video.guest.show',['video'=>$newsVideo->slug])}}">{{$newsVideo->title}}</a>
-                                        </h4>
+                    @foreach ($newsVideos as $newsVideo)
+                        <div class="col-12 col-md-6 col-lg-4 project-item filter-finance filter-supply">
+                            <div class="project-panel " data-hover="">
+                                <div class="project-panel-holder">
+                                    <div class="project-img"><a class="link"
+                                            href="{{ route('news-video.guest.show', ['video' => $newsVideo->slug]) }}"></a><img
+                                            src="{{ asset($newsVideo->thumbnail) }}" alt="project image" /></div>
+                                    <!-- End .project-img-->
+                                    <div class="project-content">
+                                        <div class="project-title">
+                                            <h4><a
+                                                    href="{{ route('news-video.guest.show', ['video' => $newsVideo->slug]) }}">{{ $newsVideo->title }}</a>
+                                            </h4>
+                                        </div>
                                     </div>
+                                    <!-- End .project-content -->
                                 </div>
-                                <!-- End .project-content -->
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
                 </div>
                 <div class="row">
-                    <div class="col-12 text-center"><a class="btn btn--bordered btn--white"  href="{{route('news-video.guest.index')}}">Lihat Video Lainnya<i class="energia-arrow-right"></i></a></div>
+                    <div class="col-12 text-center"><a class="btn btn--bordered btn--white"
+                            href="{{ route('news-video.guest.index') }}">Lihat Video Lainnya<i
+                                class="energia-arrow-right"></i></a></div>
                 </div>
                 <!-- End .row-->
             </div>
@@ -240,10 +249,10 @@
         <!-- End .container-->
     </section>
     <!--
-                          ============================
-                          Testimonials #1 Section
-                          ============================
-                          -->
+                              ============================
+                              Testimonials #1 Section
+                              ============================
+                              -->
     {{-- <section class="testimonial testimonial-1 bg-theme2">
         <div class="container">
             <div class="row">
@@ -305,21 +314,21 @@
         <!-- End .container-->
     </section> --}}
     <!--
-    ============================
-    Projects Modern #1 Section
-    ============================
-    -->
+        ============================
+        Projects Modern #1 Section
+        ============================
+        -->
     <section class="project-single mt-5" id="project-single">
         <!-- End .row-->
-          <div class="heading heading-3 text-center">
-                <div class="row">
-                    <div class="col-12 col-lg-6 offset-lg-3">
-                        <h2 class="heading-title">Infografis</h2>
-                    </div>
-                    <!-- End .col-lg-6-->
+        <div class="heading heading-3 text-center">
+            <div class="row">
+                <div class="col-12 col-lg-6 offset-lg-3">
+                    <h2 class="heading-title">Infografis</h2>
                 </div>
-                <!-- End .row-->
+                <!-- End .col-lg-6-->
             </div>
+            <!-- End .row-->
+        </div>
         <div class="project-image-carousel projects projects-gallery">
             <div class="carousel owl-carousel carousel-dots carousel-navs" data-slide="4" data-slide-rs="3"
                 data-center="data-center" data-autoplay="true" data-nav="true" data-dots="true" data-space="30"
@@ -353,7 +362,8 @@
             <div class="row mt-3">
                 <div class="col-12 text-center">
                     <div class="projects-load-more">
-                        <a class="btn btn--secondary"  href="{{route('infographic')}}">Lihat Lainnya<i class="energia-arrow-right"></i></a>
+                        <a class="btn btn--secondary" href="{{ route('infographic') }}">Lihat Lainnya<i
+                                class="energia-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -361,10 +371,10 @@
         <!-- End .container-->
     </section>
     <!--
-    ============================
-    Clients #1 Section
-    ============================
-    -->
+        ============================
+        Clients #1 Section
+        ============================
+        -->
     <section class="clients clients-carousel clients-1 mt-5" id="clients-1">
         <div class="container">
             <div class="row">
@@ -386,10 +396,79 @@
         <!-- End .container-->
     </section>
     <!--
-                          ============================
-                          Contact #1 Section
-                          ============================
-                          -->
+          ============================
+          Pricing #1 Section
+          ============================
+          -->
+    <section class="pricing pricing-1" id="pricing-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6 offset-lg-3">
+                    <div class="heading heading-16 text-center">
+                        <p class="heading-subtitle">Sosial Media BAPENDA Provinsi Kalimantan Timur</p>
+                        <h2 class="heading-title">Sosial Media</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-4 d-flex">
+                    <div class="price-table">
+                        <div class="pricing-panel">
+                            <div class="pricing-body">
+                                <div class="pricing-heading">
+                                    <h4 class="pricing-title">Ikuti Kami di Facebook</h4>
+                                    <p class="pricing-desc">Facebook BAPENDA Provinsi Kalimantan Timur</p>
+                                </div>
+                                <div class="pricing-list">
+                                    <div class="fb-page" data-href="https://web.facebook.com/bapenda.prov.kaltim" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://web.facebook.com/bapenda.prov.kaltim" class="fb-xfbml-parse-ignore"><a href="https://web.facebook.com/bapenda.prov.kaltim">BAPENDA Kaltim</a></blockquote></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .pricing-table-->
+                </div>
+                <div class="col-12 col-lg-4 d-flex">
+                    <div class="price-table">
+                        <div class="pricing-panel">
+                            <div class="pricing-body">
+                                <div class="pricing-heading">
+                                    <h4 class="pricing-title">Ikuti Kami di Twitter</h4>
+                                    <p class="pricing-desc">Twitter BAPENDA Provinsi Kalimantan Timur</p>
+                                </div>
+                                <div class="pricing-list">
+                                    <a class="twitter-timeline" data-height="500" href="https://twitter.com/BapendaKaltim?ref_src=twsrc%5Etfw">Tweets by Bapenda Kaltim</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .pricing-table-->
+                </div>
+                <div class="col-12 col-lg-4 d-flex">
+                    <div class="price-table">
+                        <div class="pricing-panel">
+                            <div class="pricing-body">
+                                <div class="pricing-heading">
+                                    <h4 class="pricing-title">Ikuti Kami di Instagram</h4>
+                                    <p class="pricing-desc">Instagram BAPENDA Provinsi Kalimantan Timur</p>
+                                </div>
+                                <div class="pricing-list">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End .pricing-table-->
+                </div>
+            </div>
+            <!-- End .row-->
+        </div>
+        <!-- End .container-->
+    </section>
+    <!--
+                              ============================
+                              Contact #1 Section
+                              ============================
+                              -->
     {{-- <section class="contact contact-1 bg-overlay bg-overlay-theme" id="contact-1">
         <div class="bg-section"><img src="{{ asset('guest/assets/images/background/3.jpg') }}" alt="background" /></div>
         <div class="container">
@@ -512,10 +591,10 @@
         <!-- End .container-->
     </section> --}}
     <!--
-                          ============================
-                          Blog #1 Section
-                          ============================
-                          -->
+                              ============================
+                              Blog #1 Section
+                              ============================
+                              -->
     {{-- <section class="blog blog-1 blog-grid" id="blog-1">
         <div class="container">
             <div class="row">
@@ -643,8 +722,11 @@
         <!-- End .container-->
     </section> --}}
     <!--
-                          ============================
-                          Footer #1
-                          ============================
-                          -->
+                              ============================
+                              Footer #1
+                              ============================
+                              -->
 @endsection
+@push('script')
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v10.0" nonce="2koYxy6w"></script>
+@endpush

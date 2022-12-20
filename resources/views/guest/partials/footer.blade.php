@@ -118,6 +118,7 @@ $totalVisitor = Visitor::count();
                                     <li> <a class="share-facebook" href="javascript:void(0)"><i class="energia-facebook"></i>facebook </a></li>
                                     <li> <a class="share-twitter" href="javascript:void(0)"><i class="energia-twitter"></i>twitter</a></li>
                                     <li> <a class="share-youtube" href="javascript:void(0)"><i class="energia-youtube"></i>youtube</a></li>
+                                    <li> <a class="share-instagram" href="javascript:void(0)"><i class="energia-instagram"></i>Instagram</a></li>
                                   </ul>
                         </div>
                     </div>
