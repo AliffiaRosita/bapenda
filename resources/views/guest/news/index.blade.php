@@ -10,7 +10,7 @@
                              <h1 class="title-heading">Berita</h1>
                              <p class="text-center"></p>
                              <ol class="breadcrumb breadcrumb-light d-flex justify-content-center">
-                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                 <li class="breadcrumb-item"><a href="{{route('beranda')}}">Beranda</a></li>
                                  <li class="breadcrumb-item active" aria-current="page">Berita</li>
                              </ol>
                              <!-- End .breadcrumb-->
@@ -60,7 +60,7 @@
                                  <div class="entry-img-wrap">
                                      <div class="entry-img" style=""><a href="{{ route('news.guest.show', ['news' => $item->slug]) }}"><img
                                                  style="height: 200px;width:100%;object-fit:cover"
-                                                 src="{{ $item->newsGalleries->first()->img }}"
+                                                 src="{{ asset($item->newsGalleries->first()->img) }}"
                                                  alt="{{ $item->title }}" /></a></div>
                                      <div class="entry-category">
                                          @foreach ($item->categories as $category)

@@ -18,7 +18,7 @@ class NewsGuestController extends Controller
 {
     public function index()
     {
-        $news = News::paginate(6);
+        $news = News::latest()->paginate(6);
 
         return view('guest.news.index', [
             'news'=> $news,
@@ -32,14 +32,21 @@ class NewsGuestController extends Controller
             'view'=>$news->view +1,
         ]);
         $categories = Category::all();
+
+        $latestNews = News::latest()->take(3)->get();
+        $previousNews = News::where('id', '<', $news->id)->orderBy('id','desc')->first();
+        $nextNews = News::where('id', '>', $news->id)->orderBy('id')->first();
         return view('guest.news.show', [
             'news' => $news,
             'categories'=> $categories,
+            'latestNews'=> $latestNews,
+            'previousNews'=> $previousNews,
+            'nextNews'=> $nextNews,
         ]);
     }
     public function category(Category $category)
     {
-        $news = Category::find($category->id)->news()->get();
+        $news = Category::find($category->id)->news()->latest()->paginate(6);
         $categories = Category::all();
         return view('guest.news.category', [
             'news' => $news,
