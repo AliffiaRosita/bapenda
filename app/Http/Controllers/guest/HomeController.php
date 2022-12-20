@@ -174,10 +174,11 @@ class HomeController extends Controller
             'ppid'=> $ppid,
         ]);
     }
-    public function downloadFile($file,$fileName)
+    public function downloadFile($file,$folder,Request $request)
     {
-        $path = public_path($file);
-        $filename = $fileName . ".pdf";
+        $filePath = implode([$folder, '/', $file]);
+        $path = public_path($filePath);
+        $filename = $request->filename . ".pdf";
         $headers = array(
             'Content-Type: application/pdf',
         );

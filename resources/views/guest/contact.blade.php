@@ -34,22 +34,61 @@
                   </div>
                 </div>
               </div>
-            <div class="row">
-              <div class="col-12 col-lg-5 img-card-holder">
+            {{-- <div class="row">
+              <div class="col-12 col-lg-4 img-card-holder">
                 <div class="img-card img-card-2 bg-overlay bg-overlay-theme">
-                  <div class="bg-section"><img src="{{asset('guest/assets/images/contact/2.jpg')}}" alt="image"/></div>
-                  <div class="card-content">
-                    <div class="text-center">
-                        <img class="mb-4" src="{{asset('service-images/mall.png')}}" style="width: 65px" alt="">
-                    </div>
-                    <div class="text-center">
-                        <h4 style="color: white">Alamat</h4>
-                      <p style="color: white">aa</p>
-                    </div>
+                  <div class="bg-section">
+                    <img src="{{asset('guest/assets/images/contact/2.jpg')}}" alt="image"/>
+                </div>
+                <div class="card-content">
+                    <div class="content-top">
+                          <img class="mb-4" src="{{asset('service-images/mall.png')}}" style="width: 65px" alt="">
+                      
+                      <div >
+                          <h4 style="color: white">Alamat</h4>
+                        <p style="color: white">aa</p>
+                      </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
+            <div class="row">
+              <div class="col-12 col-lg-4 ">
+                <div class="card bg-success">
+                    <div class="card-body">
+                        <img class="mb-4 mx-auto d-block m-2" src="{{asset('service-images/mall.png')}}" style="width: 65px" alt="">
+                      
+                      <div class="text-center">
+                          <h4 style="color: white">Alamat</h4>
+                        <p style="color: white">aa</p>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-4 ">
+                <div class="card bg-success">
+                    <div class="card-body">
+                        <img class="mb-4 mx-auto d-block m-2" src="{{asset('service-images/mall.png')}}" style="width: 65px" alt="">
+                      
+                      <div class="text-center">
+                          <h4 style="color: white">Alamat</h4>
+                        <p style="color: white">aa</p>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-4 ">
+                <div class="card bg-success">
+                    <div class="card-body">
+                        <img class="mb-4 mx-auto d-block m-2" src="{{asset('service-images/mall.png')}}" style="width: 65px" alt="">
+                      
+                      <div class="text-center">
+                          <h4 style="color: white">Alamat</h4>
+                        <p style="color: white">aa</p>
+                      </div>
+                    </div>
+                </div>
+              </div>
             <!-- End .row-->
           </div>
           <!-- End .contact-panel-->

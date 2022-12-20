@@ -51,7 +51,7 @@ Route::get('/report/{report:slug}',[HomeController::class,'report'])->name('repo
 Route::get('/info/{info:slug}',[HomeController::class,'info'])->name('info');
 Route::get('/ppid/{ppid:slug}',[HomeController::class,'ppid'])->name('ppid');
 Route::get('/kontak',[HomeController::class,'contact'])->name('contact');
-Route::get('/download/{file}/{fileName}',[HomeController::class,'downloadFile'])->name('download.file');
+Route::get('/download/{file}/{folder}',[HomeController::class,'downloadFile'])->name('download.file');
 
 Route::get('/berita',[NewsGuestController::class,'index'])->name('news.guest.index');
 Route::get('/berita/kategori/{category:slug}',[NewsGuestController::class,'category'])->name('news.guest.category');

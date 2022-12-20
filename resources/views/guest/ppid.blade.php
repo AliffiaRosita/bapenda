@@ -47,7 +47,10 @@ PageTitle #2 Section
                 <tr>
                     <td>{{$key+1}}</td>
                     <td>{{$item->title}}</td>
-                    <td><a href="{{route('download.file',['file'=>$item->file,'fileName'=> $item->title])}}" target="_blank" style="height:40px;width:40px" class="button-success"><i class="fas fa-download"></i></a></td>
+                    @php
+                        $arrFilename = explode("/", $item->file);
+                    @endphp
+                <td><a href="{{url('/download/'.$arrFilename[1].'/'.$arrFilename[0].'/?filename='.$item->title)}}" target="_blank" style="height:40px;width:40px" class="button-success"><i class="fas fa-download"></i></a></td>    
                 </tr>
                 @endforeach
             </table>
