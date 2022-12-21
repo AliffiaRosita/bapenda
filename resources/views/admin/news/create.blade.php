@@ -12,6 +12,9 @@
     @push('css')
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
         <link href="{{ asset('admin/assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+        <style>
+       
+        </style>
     @endpush
 
     <div class="container">
@@ -168,6 +171,7 @@
             });
             $('#summernote').summernote({
                 height: '200px',
+                dialogsInBody: true,
                 callbacks: {
                     onImageUpload: function(image) {
                         uploadImage(image[0]);

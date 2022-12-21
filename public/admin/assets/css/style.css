@@ -47,3 +47,7 @@
 .but-1 a:hover{
     background-color: #d81042 !important;
 }
+
+.note-editable{
+        background-color:white;
+    }

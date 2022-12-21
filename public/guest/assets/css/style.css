@@ -89,7 +89,7 @@ custom.css and it will override the style in this file. You have been warned! :)
 /*------------------------------------*\
     #RESET
 \*------------------------------------*/
-*,
+/* *,
 h1,
 h2,
 h3,
@@ -159,7 +159,7 @@ button {
 
 textarea {
 	resize: none;
-}
+} */
 
 /*------------------------------------*\
     #GLOBAL STYLES
