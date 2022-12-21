@@ -400,6 +400,7 @@
           Pricing #1 Section
           ============================
           -->
+          <hr>
     <section class="pricing pricing-1" id="pricing-1">
         <div class="container">
             <div class="row">
