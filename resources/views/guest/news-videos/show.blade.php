@@ -11,8 +11,9 @@
                  <div class="col-12">
                      <div class="breadcrumb-wrap">
                          <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('beranda') }}">Beranda</a></li>
-                             <li class="breadcrumb-item"><a href="{{ route('news-video.guest.index') }}">Berita Video</a></li>
+                             <li class="breadcrumb-item"><a href="{{ route('beranda') }}">Beranda</a></li>
+                             <li class="breadcrumb-item"><a href="{{ route('news-video.guest.index') }}">Berita Video</a>
+                             </li>
                              <li class="breadcrumb-item active" aria-current="page">{{ $newsVideo->title }}</li>
                          </ol>
                      </div>
@@ -31,10 +32,10 @@
                      <div class="blog-entry">
                          <div class="entry-img entry-infos">
                              <!--
-                                        ============================
-                                        Video #3 Section
-                                        ============================
-                                        -->
+                                            ============================
+                                            Video #3 Section
+                                            ============================
+                                            -->
                              <div class="video video-3" style="height: 500px" id="video-3">
                                  <div class="bg-section"><img src="{{ asset($newsVideo->thumbnail) }}" alt="background" />
                                  </div><a class="popup-video btn-video btn-video-2" href="{{ $newsVideo->url }}"> <i
@@ -45,7 +46,8 @@
                                  @php
                                      $date = date_create($newsVideo->created_at);
                                  @endphp
-                                 <div class="entry-date"> <span class="year">{{ date_format($date, 'd F Y') }}</span></div>
+                                 <div class="entry-date"> <span class="year">{{ date_format($date, 'd F Y') }}</span>
+                                 </div>
                                  <div class="entry-author"><a href="blog-grid.html">{{ $newsVideo->user->admin->name }}</a>
                                  </div>
                                  <div class="entry-comments"><span><i class="fas fa-eye"></i>
@@ -66,10 +68,19 @@
                              <div class="entry-holder mt-4">
                                  <!-- End .entry-tags-->
                                  <div class="entry-share"><span>Bagikan</span>
-                                     <div><a class="share-facebook" href=""><i class="fab fa-facebook-f"></i></a><a
-                                             class="share-instagram" href="javascript:void(0)"><i
-                                                 class="fab fa-twitter"></i></a><a class="share-twitter"
-                                             href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
+                                     <div>
+                                         <a class="share-facebook"
+                                             href="https://www.facebook.com/sharer.php?u={{ route('news-video.guest.show', ['video' => $newsVideo->slug]) }}&t={{ $newsVideo->title }}">
+                                             <i class="fab fa-facebook-f"></i>
+                                         </a>
+                                         <a class="share-instagram"
+                                             href="https://twitter.com/intent/tweet?text={{ $newsVideo->title }}&url={{ route('news-video.guest.show', ['video' => $newsVideo->slug]) }}">
+                                             <i class="fab fa-twitter"></i>
+                                         </a>
+                                         <a class="share-twitter" href="https://www.linkedin.com/shareArticle/?mini=true&title={{ $newsVideo->title }}&url={{ route('news-video.guest.show', ['video' => $newsVideo->slug]) }}">
+                                             <i class="fab fa-linkedin-in"></i>
+                                         </a>
+                                     </div>
                                  </div>
                                  <!-- End .entry-share-->
                              </div>

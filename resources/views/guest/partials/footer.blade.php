@@ -115,10 +115,9 @@ $totalVisitor = Visitor::count();
                         <div class="copyright"><span>&copy; Copyright 2022 - Badan Pendapatan Daerah Provinsi Kalimantan
                                 Timur </span>
                                 <ul class="list-unstyled social-icons">
-                                    <li> <a class="share-facebook" href="javascript:void(0)"><i class="energia-facebook"></i>facebook </a></li>
-                                    <li> <a class="share-twitter" href="javascript:void(0)"><i class="energia-twitter"></i>twitter</a></li>
-                                    <li> <a class="share-youtube" href="javascript:void(0)"><i class="energia-youtube"></i>youtube</a></li>
-                                    <li> <a class="share-instagram" href="javascript:void(0)"><i class="energia-instagram"></i>Instagram</a></li>
+                                    <li> <a class="share-facebook" href="https://www.facebook.com/bapenda.prov.kaltim/" target="__BLANK"><i class="energia-facebook"></i>facebook </a></li>
+                                    <li> <a class="share-twitter" href="https://twitter.com/BapendaKaltim/" target="__BLANK"><i class="energia-twitter"></i>twitter</a></li>
+                                    <li> <a class="share-youtube" href="https://www.youtube.com/@bapendaprov.kaltim3600" target="__BLANK"><i class="energia-youtube"></i>youtube</a></li>
                                   </ul>
                         </div>
                     </div>

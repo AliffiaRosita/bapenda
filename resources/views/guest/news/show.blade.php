@@ -118,10 +118,17 @@
                             <div class="entry-holder">
                                 <!-- End .entry-tags-->
                                 <div class="entry-share"><span>Bagikan</span>
-                                    <div><a class="share-facebook" href=""><i class="fab fa-facebook-f"></i></a><a
-                                            class="share-instagram" href="javascript:void(0)"><i
-                                                class="fab fa-twitter"></i></a><a class="share-twitter"
-                                            href="javascript:void(0)"><i class="fab fa-linkedin-in"></i></a></div>
+                                    <div>
+                                        <a class="share-facebook" href="https://www.facebook.com/sharer.php?u={{ route('news.guest.show', ['news' => $news->slug]) }}&t={{ $news->title }}">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="share-twitter" href="https://twitter.com/intent/tweet?text={{ $news->title }}&url={{ route('news.guest.show', ['news' => $news->slug]) }}">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a class="share-twitter" href="https://www.linkedin.com/shareArticle/?mini=true&title={{ $news->title }}&url={{ route('news.guest.show', ['news' => $news->slug]) }}">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    </div>
                                 </div>
                                 <!-- End .entry-share-->
 

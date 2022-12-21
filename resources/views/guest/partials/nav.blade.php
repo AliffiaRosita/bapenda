@@ -13,8 +13,9 @@
         <div class="block-right">
             <!-- Start .social-links-->
             <div class="social-links">
-                <a class="share-facebook" href="javascript:void(0)"><i class="energia-facebook"></i></a>
-                <a class="share-twitter" href="javascript:void(0)"><i class="energia-twitter"></i></a>
+                <a class="share-facebook" href="https://www.facebook.com/bapenda.prov.kaltim/" target="_BLANK"><i class="energia-facebook"></i></a>
+                <a class="share-twitter" href="https://twitter.com/BapendaKaltim/" target="_BLANK"><i class="energia-twitter"></i></a>
+                <a class="share-youtube" href="https://www.youtube.com/@bapendaprov.kaltim3600" target="_BLANK"><i class="energia-youtube"></i></a>
             </div>
             <!-- End .social-links-->
         </div>
