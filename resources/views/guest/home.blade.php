@@ -447,12 +447,12 @@
                     <div class="price-table">
                         <div class="pricing-panel">
                             <div class="pricing-body">
-                                <div class="pricing-heading">
+                                <div class="pricing-heading" style="margin-bottom:20px">
                                     <h4 class="pricing-title">Ikuti Kami di Instagram</h4>
                                     <p class="pricing-desc">Instagram BAPENDA Provinsi Kalimantan Timur</p>
                                 </div>
                                 <div class="pricing-list">
-                                    
+                                    <div data-mc-src="6dfc5990-6851-41c1-a87f-400be6528cd1#null"></div>
                                 </div>
                             </div>
                         </div>
@@ -728,5 +728,9 @@
                               -->
 @endsection
 @push('script')
+<script
+  src="https://cdn2.woxo.tech/a.js#63a28267417f3734f50f5365"
+  async data-usrc>
+</script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v10.0" nonce="2koYxy6w"></script>
 @endpush
