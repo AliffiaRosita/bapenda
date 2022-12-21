@@ -187,7 +187,7 @@ class HomeController extends Controller
 
     public function contact()
     {
-        $contact = Ppid::first();
+        $contact = Contact::first();
 
         return view('guest.contact',[
             'contact'=>$contact,

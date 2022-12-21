@@ -11,7 +11,7 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <h3 class="d-none">our office map</h3>
+              <h3 class="d-none">Peta Kantor Kami</h3>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@
                 <div class="card-content">
                     <div class="content-top">
                           <img class="mb-4" src="{{asset('service-images/mall.png')}}" style="width: 65px" alt="">
-                      
+
                       <div >
                           <h4 style="color: white">Alamat</h4>
                         <p style="color: white">aa</p>
@@ -56,11 +56,11 @@
               <div class="col-12 col-lg-4 ">
                 <div class="card bg-success">
                     <div class="card-body">
-                        <img class="mb-4 mx-auto d-block m-2" src="{{asset('service-images/mall.png')}}" style="width: 65px" alt="">
-                      
+                        <img class="mb-4 mx-auto d-block m-2" src="{{asset('guest/assets/images/icons/location-pin.png')}}" style="width: 65px" alt="">
+
                       <div class="text-center">
                           <h4 style="color: white">Alamat</h4>
-                        <p style="color: white">aa</p>
+                        <p style="color: white">{{$contact->address}}</p>
                       </div>
                     </div>
                 </div>
@@ -68,11 +68,11 @@
               <div class="col-12 col-lg-4 ">
                 <div class="card bg-success">
                     <div class="card-body">
-                        <img class="mb-4 mx-auto d-block m-2" src="{{asset('service-images/mall.png')}}" style="width: 65px" alt="">
-                      
+                        <img class="mb-4 mx-auto d-block m-2" src="{{asset('guest/assets/images/icons/gmail.png')}}" style="width: 65px" alt="">
+
                       <div class="text-center">
-                          <h4 style="color: white">Alamat</h4>
-                        <p style="color: white">aa</p>
+                          <h4 style="color: white">Email</h4>
+                        <p style="color: white">{{$contact->email}}</p>
                       </div>
                     </div>
                 </div>
@@ -80,11 +80,11 @@
               <div class="col-12 col-lg-4 ">
                 <div class="card bg-success">
                     <div class="card-body">
-                        <img class="mb-4 mx-auto d-block m-2" src="{{asset('service-images/mall.png')}}" style="width: 65px" alt="">
-                      
+                        <img class="mb-4 mx-auto d-block m-2" src="{{asset('guest/assets/images/icons/phone-call.png')}}" style="width: 65px" alt="">
+
                       <div class="text-center">
-                          <h4 style="color: white">Alamat</h4>
-                        <p style="color: white">aa</p>
+                          <h4 style="color: white">Nomor Telepon</h4>
+                        <p style="color: white">{{$contact->phone_number}}</p>
                       </div>
                     </div>
                 </div>
