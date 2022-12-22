@@ -2,7 +2,7 @@
     <!--begin::Brand-->
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
         <!--begin::Logo-->
-        <a href="../../demo1/dist/index.html">
+        <a href="{{route('dashboard')}}">
             <img alt="Logo" src="{{ asset('/img/logo-bapenda.png') }}" class="h-50px logo" />
         </a>
         <!--end::Logo-->

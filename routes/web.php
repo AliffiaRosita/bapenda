@@ -67,7 +67,7 @@ Route::post('login', [LoginController::class,'authenticate'])->name('login.auth'
 
 
 Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
-    Route::get('dashboard', [DashboardController::class,'index']);
+    Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
     Route::resource('banner', BannerController::class);
     Route::resource('service', ServiceController::class);
     Route::resource('institution', InstitutionController::class);
