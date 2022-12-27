@@ -12,6 +12,22 @@
 <link href="{{ asset('guest/assets/css/vendor/flip.min.css') }}" rel="stylesheet" />
 <link rel="stylesheet" href="{{ asset('guest/assets/css/customStyle.css') }}">
 <style>
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background-color: #fff;
+    }
+    .preloader .loading {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      font: 14px arial;
+    }
     .tick {
         font-size: 1.6em;
     }
