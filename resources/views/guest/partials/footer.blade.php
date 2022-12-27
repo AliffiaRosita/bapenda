@@ -1,5 +1,7 @@
 @php
 use App\Models\Visitor;
+use Carbon\Carbon;
+$dateNow = Carbon::now();
 $totalVisitor = Visitor::count();
 @endphp
 <footer class="footer footer-1">
@@ -112,7 +114,7 @@ $totalVisitor = Visitor::count();
             <div class="row">
                 <div class="col-12">
                     <div class="footer-copyright">
-                        <div class="copyright"><span>&copy; Copyright 2022 - Badan Pendapatan Daerah Provinsi Kalimantan
+                        <div class="copyright"><span>&copy; Copyright {{$dateNow->year}} - Badan Pendapatan Daerah Provinsi Kalimantan
                                 Timur </span>
                                 <ul class="list-unstyled social-icons">
                                     <li> <a class="share-facebook" href="https://www.facebook.com/bapenda.prov.kaltim/" target="__BLANK"><i class="energia-facebook"></i>facebook </a></li>
